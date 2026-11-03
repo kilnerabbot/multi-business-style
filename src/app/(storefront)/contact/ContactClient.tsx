@@ -128,11 +128,11 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Header */}
       <motion.div {...fadeUp()} className="mb-12 text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-[#2ECC71]/10 border border-[#2ECC71]/30 rounded-full px-4 py-1.5 mb-5">
-          <Mail size={14} className="text-[#2ECC71]" />
-          <span className="text-[#2ECC71] text-xs font-semibold tracking-widest uppercase">Get in touch</span>
+        <div className="inline-flex items-center gap-2 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-full px-4 py-1.5 mb-5">
+          <Mail size={14} className="text-[#7A5230]" />
+          <span className="text-[#7A5230] text-xs font-semibold tracking-widest uppercase">Get in touch</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0D1B2A] leading-tight">Contact Us</h1>
+        <h1 className="text-4xl sm:text-5xl font-display font-medium text-[#111111] leading-tight">Contact Us</h1>
         <p className="mt-4 text-gray-500 text-lg leading-relaxed">
           We&apos;d love to hear from you. Whether it&apos;s an order question, sizing help, or just a hello — we&apos;re here.
         </p>
@@ -146,17 +146,17 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
           {contactCards.map(({ icon: Icon, label, value, sub, href }) => (
             <div key={label} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[#2ECC71]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon size={16} className="text-[#2ECC71]" />
+                <div className="w-9 h-9 rounded-xl bg-[#7A5230]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon size={16} className="text-[#7A5230]" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</p>
                   {href ? (
-                    <a href={href} className="font-semibold text-[#0D1B2A] hover:text-[#2ECC71] transition-colors text-sm mt-0.5 block">
+                    <a href={href} className="font-semibold text-[#111111] hover:text-[#7A5230] transition-colors text-sm mt-0.5 block">
                       {value}
                     </a>
                   ) : (
-                    <p className="font-semibold text-[#0D1B2A] text-sm mt-0.5">{value}</p>
+                    <p className="font-semibold text-[#111111] text-sm mt-0.5">{value}</p>
                   )}
                   <p className="text-xs text-gray-400 mt-0.5">{sub}</p>
                 </div>
@@ -190,16 +190,16 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
         <motion.div {...fadeUp(0.15)} className="lg:col-span-2">
           {sent ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-16 bg-white border border-gray-100 rounded-2xl shadow-sm px-8">
-              <div className="w-16 h-16 bg-[#2ECC71]/15 rounded-full flex items-center justify-center mb-5">
-                <CheckCircle size={32} className="text-[#2ECC71]" />
+              <div className="w-16 h-16 bg-[#7A5230]/15 rounded-full flex items-center justify-center mb-5">
+                <CheckCircle size={32} className="text-[#7A5230]" />
               </div>
-              <h2 className="text-2xl font-extrabold text-[#0D1B2A] mb-2">Message sent!</h2>
+              <h2 className="text-2xl font-display font-medium text-[#111111] mb-2">Message sent!</h2>
               <p className="text-gray-400 max-w-sm leading-relaxed">
                 Thanks for reaching out. We&apos;ll get back to you at <strong>{form.email}</strong> within 1 business day.
               </p>
               <button
                 onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                className="mt-7 text-sm text-[#2ECC71] font-semibold hover:underline"
+                className="mt-7 text-sm text-[#7A5230] font-semibold hover:underline"
               >
                 Send another message
               </button>
@@ -209,7 +209,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
               onSubmit={handleSubmit}
               className="bg-white border border-gray-100 rounded-2xl shadow-sm p-8 space-y-5"
             >
-              <h2 className="text-xl font-bold text-[#0D1B2A] mb-2">Send us a message</h2>
+              <h2 className="text-xl font-display font-medium text-[#111111] mb-2">Send us a message</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelCls}>Your name</label>
@@ -240,7 +240,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
                   "w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-all",
                   loading
                     ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    : "bg-[#2ECC71] hover:bg-[#27AE60] text-[#0D1B2A] hover:shadow-lg hover:shadow-[#2ECC71]/25"
+                    : "bg-[#111111] hover:bg-[#3a2c1f] text-white hover:shadow-lg hover:shadow-[#7A5230]/25"
                 )}
               >
                 <Send size={16} />
@@ -255,4 +255,4 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71] transition-colors bg-[#F9FAFB]";
+const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";

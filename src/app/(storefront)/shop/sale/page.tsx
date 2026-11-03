@@ -38,7 +38,7 @@ export default async function SalePage() {
         title="Sale"
         subtitle="Limited Time Deals"
         description="Big savings across men's, women's, kids' and accessories. Don't sleep on these prices — they won't last."
-        gradient="bg-gradient-to-br from-[#2e0a0a] via-[#1a0808] to-[#0D1B2A]"
+        gradient="bg-gradient-to-br from-[#2e0a0a] via-[#1a0808] to-[#111111]"
         accent="#f87171"
         tag="Up to 40% off"
         cta={{ label: "Shop All Sale Items", href: "/shop/sale" }}

@@ -27,20 +27,20 @@ export default function SuccessClient({ orderId, phone, orderRef }: Props) {
         </div>
       </div>
 
-      <h1 className="text-3xl font-extrabold text-[#0D1B2A] mb-3">Order Sent!</h1>
+      <h1 className="text-3xl font-display font-medium text-[#111111] mb-3">Order Sent!</h1>
       <p className="text-gray-500 mb-2">
         Your order details have been sent to us on WhatsApp.
       </p>
       {displayRef && (
         <p className="text-sm text-gray-400 mb-8">
           Order reference:{" "}
-          <span className="font-semibold text-[#0D1B2A]">{displayRef}</span>
+          <span className="font-semibold text-[#111111]">{displayRef}</span>
         </p>
       )}
 
       {/* Next steps card */}
-      <div className="bg-[#F4F6F8] rounded-2xl p-6 mb-6 text-left space-y-4">
-        <p className="text-sm font-bold text-[#0D1B2A]">What happens next?</p>
+      <div className="bg-[#F4F0E6] rounded-2xl p-6 mb-6 text-left space-y-4">
+        <p className="text-sm font-bold text-[#111111]">What happens next?</p>
         <ol className="space-y-3">
           {[
             "WhatsApp opened with your order pre-filled — just hit Send if you haven't yet.",
@@ -72,13 +72,13 @@ export default function SuccessClient({ orderId, phone, orderRef }: Props) {
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link
           href="/account/orders"
-          className="inline-flex items-center justify-center gap-2 bg-[#0D1B2A] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#1a2f45] transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-[#111111] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#1a2f45] transition-colors"
         >
           Track your order
         </Link>
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center gap-2 border border-gray-200 text-[#0D1B2A] font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors"
+          className="inline-flex items-center justify-center gap-2 border border-gray-200 text-[#111111] font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors"
         >
           Continue shopping <ArrowRight size={15} />
         </Link>

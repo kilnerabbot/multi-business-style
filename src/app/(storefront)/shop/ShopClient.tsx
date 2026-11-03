@@ -63,7 +63,7 @@ export default function ShopClient({ initialProducts, categories, activeGender }
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Page header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-[#0D1B2A]">
+        <h1 className="text-3xl font-display font-medium text-[#111111]">
           {gender ? gender.charAt(0).toUpperCase() + gender.slice(1) : "All Products"}
         </h1>
         <p className="text-gray-400 mt-1">{filtered.length} items</p>
@@ -78,8 +78,8 @@ export default function ShopClient({ initialProducts, categories, activeGender }
             className={cn(
               "flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all",
               gender === g.value
-                ? "bg-[#0D1B2A] text-white"
-                : "bg-[#F4F6F8] text-[#0D1B2A] hover:bg-gray-200"
+                ? "bg-[#111111] text-white"
+                : "bg-[#F4F0E6] text-[#111111] hover:bg-gray-200"
             )}
           >
             {g.label}
@@ -106,14 +106,14 @@ export default function ShopClient({ initialProducts, categories, activeGender }
           <div className="lg:hidden flex items-center justify-between mb-4">
             <button
               onClick={() => setFilterOpen(true)}
-              className="flex items-center gap-2 text-sm font-medium text-[#0D1B2A] border border-gray-200 px-4 py-2 rounded-lg"
+              className="flex items-center gap-2 text-sm font-medium text-[#111111] border border-gray-200 px-4 py-2 rounded-lg"
             >
               <SlidersHorizontal size={15} /> Filters
             </button>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="text-sm border border-gray-200 rounded-lg px-3 py-2 text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71]"
+              className="text-sm border border-gray-200 rounded-lg px-3 py-2 text-[#111111] focus:outline-none focus:border-[#7A5230]"
             >
               {SORT_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
@@ -124,11 +124,11 @@ export default function ShopClient({ initialProducts, categories, activeGender }
           {/* Product grid */}
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center gap-4">
-              <p className="text-xl font-semibold text-[#0D1B2A]">No products found</p>
+              <p className="text-xl font-semibold text-[#111111]">No products found</p>
               <p className="text-gray-400">Try adjusting your filters</p>
               <button
                 onClick={() => { setGender(""); setOnlySale(false); setMaxPrice(5000); }}
-                className="text-sm text-[#2ECC71] font-semibold hover:underline"
+                className="text-sm text-[#7A5230] font-semibold hover:underline"
               >
                 Clear all filters
               </button>
@@ -154,7 +154,7 @@ export default function ShopClient({ initialProducts, categories, activeGender }
             className="absolute inset-y-0 left-0 w-72 bg-white p-6 overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="font-bold text-[#0D1B2A]">Filters</h3>
+              <h3 className="font-bold text-[#111111]">Filters</h3>
               <button onClick={() => setFilterOpen(false)}>
                 <X size={20} className="text-gray-400" />
               </button>
@@ -200,9 +200,9 @@ function FilterPanel({
                 value={o.value}
                 checked={sort === o.value}
                 onChange={() => setSort(o.value)}
-                className="accent-[#2ECC71]"
+                className="accent-[#7A5230]"
               />
-              <span className="text-sm text-[#0D1B2A]">{o.label}</span>
+              <span className="text-sm text-[#111111]">{o.label}</span>
             </label>
           ))}
         </div>
@@ -220,7 +220,7 @@ function FilterPanel({
           step={100}
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="w-full accent-[#2ECC71]"
+          className="w-full accent-[#7A5230]"
         />
         <div className="flex justify-between text-xs text-gray-400 mt-1">
           <span>R100</span>
@@ -235,7 +235,7 @@ function FilterPanel({
             onClick={() => setOnlySale(!onlySale)}
             className={cn(
               "w-10 h-5 rounded-full transition-colors relative",
-              onlySale ? "bg-[#2ECC71]" : "bg-gray-200"
+              onlySale ? "bg-[#7A5230]" : "bg-gray-200"
             )}
           >
             <span
@@ -245,7 +245,7 @@ function FilterPanel({
               )}
             />
           </div>
-          <span className="text-sm text-[#0D1B2A] font-medium">Sale items only</span>
+          <span className="text-sm text-[#111111] font-medium">Sale items only</span>
         </label>
       </div>
 
@@ -258,7 +258,7 @@ function FilterPanel({
               <a
                 key={cat.id}
                 href={`/shop/${cat.slug}`}
-                className="block text-sm text-[#0D1B2A] hover:text-[#2ECC71] transition-colors"
+                className="block text-sm text-[#111111] hover:text-[#7A5230] transition-colors"
               >
                 {cat.name}
               </a>

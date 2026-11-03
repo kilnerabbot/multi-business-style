@@ -39,7 +39,7 @@ export default function ProductDetailClient({ product, related }: Props) {
       {/* Back */}
       <Link
         href="/shop"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#0D1B2A] transition-colors mb-6"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#111111] transition-colors mb-6"
       >
         <ChevronLeft size={16} /> Back to shop
       </Link>
@@ -52,7 +52,7 @@ export default function ProductDetailClient({ product, related }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-[#F4F6F8]"
+            className="relative aspect-square rounded-2xl overflow-hidden bg-[#F4F0E6]"
           >
             {product.images?.[selectedImage] ? (
               <Image
@@ -68,7 +68,7 @@ export default function ProductDetailClient({ product, related }: Props) {
               </div>
             )}
             {discount && (
-              <span className="absolute top-4 left-4 bg-[#2ECC71] text-[#0D1B2A] text-sm font-bold px-3 py-1 rounded-full">
+              <span className="absolute top-4 left-4 bg-[#111111] text-white text-sm font-bold px-3 py-1 rounded-full">
                 -{discount}%
               </span>
             )}
@@ -83,7 +83,7 @@ export default function ProductDetailClient({ product, related }: Props) {
                   onClick={() => setSelectedImage(i)}
                   className={cn(
                     "flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors",
-                    selectedImage === i ? "border-[#2ECC71]" : "border-transparent"
+                    selectedImage === i ? "border-[#7A5230]" : "border-transparent"
                   )}
                 >
                   <Image src={img} alt={`View ${i + 1}`} width={64} height={64} className="object-cover w-full h-full" />
@@ -98,20 +98,20 @@ export default function ProductDetailClient({ product, related }: Props) {
           <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">
             {product.category?.name ?? product.gender}
           </p>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0D1B2A] leading-tight">
+          <h1 className="text-2xl sm:text-3xl font-display font-medium text-[#111111] leading-tight">
             {product.name}
           </h1>
 
           {/* Price */}
           <div className="flex items-baseline gap-3 mt-4">
-            <span className="text-2xl font-bold text-[#0D1B2A]">
+            <span className="text-2xl font-bold text-[#111111]">
               {formatPrice(product.sale_price ?? product.price)}
             </span>
             {product.sale_price && (
               <span className="text-lg text-gray-400 line-through">{formatPrice(product.price)}</span>
             )}
             {discount && (
-              <span className="text-sm font-semibold text-[#2ECC71]">Save {discount}%</span>
+              <span className="text-sm font-semibold text-[#7A5230]">Save {discount}%</span>
             )}
           </div>
 
@@ -128,7 +128,7 @@ export default function ProductDetailClient({ product, related }: Props) {
           {/* Colors */}
           {product.colors?.length > 0 && (
             <div className="mt-6">
-              <p className="text-sm font-semibold text-[#0D1B2A] mb-2">
+              <p className="text-sm font-semibold text-[#111111] mb-2">
                 Colour: <span className="font-normal text-gray-500">{selectedColor}</span>
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -139,7 +139,7 @@ export default function ProductDetailClient({ product, related }: Props) {
                     title={color}
                     className={cn(
                       "w-7 h-7 rounded-full border-2 transition-all",
-                      selectedColor === color ? "border-[#2ECC71] scale-110" : "border-gray-300"
+                      selectedColor === color ? "border-[#7A5230] scale-110" : "border-gray-300"
                     )}
                     style={{ background: color.toLowerCase() }}
                   />
@@ -151,7 +151,7 @@ export default function ProductDetailClient({ product, related }: Props) {
           {/* Sizes */}
           {product.sizes?.length > 0 && (
             <div className="mt-5">
-              <p className="text-sm font-semibold text-[#0D1B2A] mb-2">Size</p>
+              <p className="text-sm font-semibold text-[#111111] mb-2">Size</p>
               <div className="flex gap-2 flex-wrap">
                 {product.sizes.map((size) => (
                   <button
@@ -160,8 +160,8 @@ export default function ProductDetailClient({ product, related }: Props) {
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all",
                       selectedSize === size
-                        ? "border-[#2ECC71] bg-[#2ECC71]/10 text-[#0D1B2A]"
-                        : "border-gray-200 text-gray-500 hover:border-[#0D1B2A]"
+                        ? "border-[#7A5230] bg-[#111111]/10 text-white"
+                        : "border-gray-200 text-gray-500 hover:border-[#111111]"
                     )}
                   >
                     {size}
@@ -176,20 +176,20 @@ export default function ProductDetailClient({ product, related }: Props) {
 
           {/* Quantity */}
           <div className="mt-5 flex items-center gap-3">
-            <p className="text-sm font-semibold text-[#0D1B2A]">Qty</p>
+            <p className="text-sm font-semibold text-[#111111]">Qty</p>
             <div className="flex items-center border border-gray-200 rounded-lg">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="px-3 py-2 text-gray-400 hover:text-[#0D1B2A] transition-colors text-lg leading-none"
+                className="px-3 py-2 text-gray-400 hover:text-[#111111] transition-colors text-lg leading-none"
               >
                 −
               </button>
-              <span className="px-4 py-2 text-sm font-medium text-[#0D1B2A] min-w-[40px] text-center">
+              <span className="px-4 py-2 text-sm font-medium text-[#111111] min-w-[40px] text-center">
                 {quantity}
               </span>
               <button
                 onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                className="px-3 py-2 text-gray-400 hover:text-[#0D1B2A] transition-colors text-lg leading-none"
+                className="px-3 py-2 text-gray-400 hover:text-[#111111] transition-colors text-lg leading-none"
               >
                 +
               </button>
@@ -206,8 +206,8 @@ export default function ProductDetailClient({ product, related }: Props) {
                 product.stock === 0
                   ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                   : added
-                  ? "bg-[#27AE60] text-white"
-                  : "bg-[#2ECC71] hover:bg-[#27AE60] text-[#0D1B2A] hover:shadow-lg hover:shadow-[#2ECC71]/25"
+                  ? "bg-[#3a2c1f] text-white"
+                  : "bg-[#111111] hover:bg-[#3a2c1f] text-white hover:shadow-lg hover:shadow-[#7A5230]/25"
               )}
             >
               <ShoppingBag size={18} />
@@ -221,11 +221,11 @@ export default function ProductDetailClient({ product, related }: Props) {
           {/* Delivery info */}
           <div className="mt-6 space-y-2.5 border-t border-gray-100 pt-5">
             <div className="flex items-center gap-3 text-sm text-gray-500">
-              <Truck size={16} className="text-[#2ECC71] flex-shrink-0" />
+              <Truck size={16} className="text-[#7A5230] flex-shrink-0" />
               Free delivery on orders over R1,000
             </div>
             <div className="flex items-center gap-3 text-sm text-gray-500">
-              <RotateCcw size={16} className="text-[#2ECC71] flex-shrink-0" />
+              <RotateCcw size={16} className="text-[#7A5230] flex-shrink-0" />
               30-day returns accepted
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function ProductDetailClient({ product, related }: Props) {
       {/* Related products */}
       {related.length > 0 && (
         <div className="mt-20">
-          <h2 className="text-2xl font-extrabold text-[#0D1B2A] mb-6">You may also like</h2>
+          <h2 className="text-2xl font-display font-medium text-[#111111] mb-6">You may also like</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />

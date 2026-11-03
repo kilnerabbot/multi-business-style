@@ -38,7 +38,7 @@ export default async function KidsPage() {
         title="For Kids"
         subtitle="Kids' Collection"
         description="Fun, colourful, and built to last. Cool styles for little ones who have big personalities."
-        gradient="bg-gradient-to-br from-[#1a2e2a] via-[#0f2a1e] to-[#0D1B2A]"
+        gradient="bg-gradient-to-br from-[#1a2e2a] via-[#0f2a1e] to-[#111111]"
         accent="#34d399"
         tag="Kids' Favourites"
         cta={{ label: "Shop All Kids'", href: "/shop/kids" }}

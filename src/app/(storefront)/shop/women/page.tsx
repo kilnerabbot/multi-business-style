@@ -38,7 +38,7 @@ export default async function WomenPage() {
         title="For Her"
         subtitle="Women's Collection"
         description="Elegant, expressive, and iconic. Every piece tells a story — make it yours."
-        gradient="bg-gradient-to-br from-[#1f1a2e] via-[#2a1a3e] to-[#0D1B2A]"
+        gradient="bg-gradient-to-br from-[#1f1a2e] via-[#2a1a3e] to-[#111111]"
         accent="#a78bfa"
         tag="New Season"
         cta={{ label: "Shop All Women's", href: "/shop/women" }}

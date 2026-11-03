@@ -48,7 +48,7 @@ export default async function AccessoriesPage() {
         title="Accessories"
         subtitle="The Finishing Touch"
         description="Complete any look with the perfect accessory. Caps, bags, belts, beanies — everything that pulls it together."
-        gradient="bg-gradient-to-br from-[#2e2a1a] via-[#1e1a0a] to-[#0D1B2A]"
+        gradient="bg-gradient-to-br from-[#2e2a1a] via-[#1e1a0a] to-[#111111]"
         accent="#fbbf24"
         tag="Must-Haves"
         cta={{ label: "Shop All Accessories", href: "/shop/accessories" }}

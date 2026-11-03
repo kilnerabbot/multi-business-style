@@ -27,7 +27,7 @@ function initials(name?: string | null, email?: string) {
   return (email?.[0] ?? "?").toUpperCase();
 }
 
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71] transition-colors bg-[#F9FAFB]";
+const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
 const labelCls = "block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5";
 
 const SA_PROVINCES = [
@@ -123,23 +123,23 @@ export default function AccountClient({ profile, orders }: Props) {
   const hasAddress = !!(profile?.address_line1 || profile?.suburb || profile?.city);
 
   return (
-    <div className="min-h-screen bg-[#F4F6F8]">
+    <div className="min-h-screen bg-[#F4F0E6]">
 
       {/* ── HERO HEADER ─────────────────────────────────────────────────── */}
-      <div className="bg-[#0D1B2A] pt-10 pb-0">
+      <div className="bg-[#111111] pt-10 pb-0">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Top row: avatar + name + sign out */}
           <div className="flex items-start justify-between gap-4 mb-8">
             <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2ECC71] to-[#27AE60] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#2ECC71]/20">
-                <span className="text-[#0D1B2A] text-xl font-black">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#7A5230]/20">
+                <span className="text-[#111111] text-xl font-black">
                   {initials(profile?.full_name, profile?.email)}
                 </span>
               </div>
               <div>
                 <p className="text-white/50 text-xs uppercase tracking-widest font-semibold mb-1">My Account</p>
-                <h1 className="text-white text-2xl font-extrabold leading-tight">
+                <h1 className="text-white text-2xl font-display font-medium leading-tight">
                   {profile?.full_name ? `Hey, ${profile.full_name.split(" ")[0]} 👋` : "Welcome back 👋"}
                 </h1>
                 <p className="text-white/40 text-sm mt-0.5">{profile?.email}</p>
@@ -163,7 +163,7 @@ export default function AccountClient({ profile, orders }: Props) {
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="bg-white/5 rounded-2xl px-4 py-3 border border-white/[0.08]">
                 <div className="flex items-center gap-2 mb-1">
-                  <Icon size={13} className="text-[#2ECC71]" />
+                  <Icon size={13} className="text-[#7A5230]" />
                   <p className="text-white/40 text-xs font-medium">{label}</p>
                 </div>
                 <p className="text-white font-extrabold text-lg leading-none">{value}</p>
@@ -179,7 +179,7 @@ export default function AccountClient({ profile, orders }: Props) {
                 onClick={() => setTab(t)}
                 className={`relative px-6 py-3 text-sm font-bold capitalize transition-colors rounded-t-xl ${
                   tab === t
-                    ? "bg-[#F4F6F8] text-[#0D1B2A]"
+                    ? "bg-[#F4F0E6] text-[#111111]"
                     : "text-white/40 hover:text-white/70"
                 }`}
               >
@@ -203,13 +203,13 @@ export default function AccountClient({ profile, orders }: Props) {
                 <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-sm">
                   <ShoppingBag size={32} className="text-gray-200" />
                 </div>
-                <h2 className="text-xl font-extrabold text-[#0D1B2A] mb-2">No orders yet</h2>
+                <h2 className="text-xl font-display font-medium text-[#111111] mb-2">No orders yet</h2>
                 <p className="text-gray-400 mb-6 max-w-xs mx-auto">
                   Your purchase history will appear here once you place your first order.
                 </p>
                 <Link
                   href="/shop"
-                  className="inline-flex items-center gap-2 bg-[#2ECC71] text-[#0D1B2A] font-bold px-7 py-3 rounded-xl hover:bg-[#27AE60] transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#111111] text-white font-bold px-7 py-3 rounded-xl hover:bg-[#3a2c1f] transition-colors"
                 >
                   Start Shopping
                 </Link>
@@ -226,7 +226,7 @@ export default function AccountClient({ profile, orders }: Props) {
                   return (
                     <div key={order.id}
                       className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
-                        isOpen ? "border-[#2ECC71]/30 shadow-md" : "border-gray-100 shadow-sm"
+                        isOpen ? "border-[#7A5230]/30 shadow-md" : "border-gray-100 shadow-sm"
                       }`}
                     >
                       {/* Summary row */}
@@ -242,12 +242,12 @@ export default function AccountClient({ profile, orders }: Props) {
                                 <Image src={src} alt="" width={40} height={40} className="object-cover w-full h-full" />
                               </div>
                             )) : (
-                              <div className="w-10 h-10 rounded-xl bg-[#F4F6F8] flex items-center justify-center">
+                              <div className="w-10 h-10 rounded-xl bg-[#F4F0E6] flex items-center justify-center">
                                 <Package size={18} className="text-gray-300" />
                               </div>
                             )}
                             {items.length > 3 && (
-                              <div className="w-10 h-10 rounded-xl border-2 border-white bg-[#F4F6F8] flex items-center justify-center flex-shrink-0">
+                              <div className="w-10 h-10 rounded-xl border-2 border-white bg-[#F4F0E6] flex items-center justify-center flex-shrink-0">
                                 <span className="text-xs font-bold text-gray-400">+{items.length - 3}</span>
                               </div>
                             )}
@@ -256,7 +256,7 @@ export default function AccountClient({ profile, orders }: Props) {
                           {/* Order info */}
                           <div className="flex-1 min-w-0 text-left">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-mono text-xs font-bold text-[#0D1B2A]">
+                              <span className="font-mono text-xs font-bold text-[#111111]">
                                 #{order.id.slice(0, 8).toUpperCase()}
                               </span>
                               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full capitalize ${sc.pill}`}>
@@ -273,7 +273,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                           {/* Total + chevron */}
                           <div className="text-right flex-shrink-0 flex items-center gap-3">
-                            <span className="font-extrabold text-[#0D1B2A]">{formatPrice(order.total)}</span>
+                            <span className="font-extrabold text-[#111111]">{formatPrice(order.total)}</span>
                             {isOpen
                               ? <ChevronUp size={15} className="text-gray-300" />
                               : <ChevronDown size={15} className="text-gray-300" />
@@ -302,11 +302,11 @@ export default function AccountClient({ profile, orders }: Props) {
                                       )}
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                      <p className="text-sm font-semibold text-[#0D1B2A] truncate">{item.product?.name}</p>
+                                      <p className="text-sm font-semibold text-[#111111] truncate">{item.product?.name}</p>
                                       <p className="text-xs text-gray-400">{[item.size, item.color].filter(Boolean).join(" · ")}</p>
                                     </div>
                                     <div className="text-right flex-shrink-0">
-                                      <p className="text-sm font-bold text-[#0D1B2A]">{formatPrice(price * item.quantity)}</p>
+                                      <p className="text-sm font-bold text-[#111111]">{formatPrice(price * item.quantity)}</p>
                                       <p className="text-xs text-gray-400">Qty {item.quantity}</p>
                                     </div>
                                   </div>
@@ -316,13 +316,13 @@ export default function AccountClient({ profile, orders }: Props) {
                               {/* Totals */}
                               <div className="bg-white rounded-xl border border-gray-100 p-3 space-y-1.5 text-sm">
                                 <div className="flex justify-between text-gray-400">
-                                  <span>Subtotal</span><span className="font-medium text-[#0D1B2A]">{formatPrice(order.subtotal)}</span>
+                                  <span>Subtotal</span><span className="font-medium text-[#111111]">{formatPrice(order.subtotal)}</span>
                                 </div>
                                 <div className="flex justify-between text-gray-400">
-                                  <span>Delivery</span><span className="font-medium text-[#0D1B2A]">{formatPrice(order.delivery_fee)}</span>
+                                  <span>Delivery</span><span className="font-medium text-[#111111]">{formatPrice(order.delivery_fee)}</span>
                                 </div>
-                                <div className="flex justify-between font-extrabold text-[#0D1B2A] border-t border-gray-100 pt-1.5 mt-1">
-                                  <span>Total</span><span className="text-[#2ECC71]">{formatPrice(order.total)}</span>
+                                <div className="flex justify-between font-extrabold text-[#111111] border-t border-gray-100 pt-1.5 mt-1">
+                                  <span>Total</span><span className="text-[#7A5230]">{formatPrice(order.total)}</span>
                                 </div>
                               </div>
                             </div>
@@ -334,7 +334,7 @@ export default function AccountClient({ profile, orders }: Props) {
                                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wide flex items-center gap-1.5 mb-3">
                                     <MapPin size={12} /> Shipping To
                                   </p>
-                                  <p className="text-sm font-semibold text-[#0D1B2A]">
+                                  <p className="text-sm font-semibold text-[#111111]">
                                     {order.shipping_address.first_name} {order.shipping_address.last_name}
                                   </p>
                                   <p className="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -351,13 +351,13 @@ export default function AccountClient({ profile, orders }: Props) {
                                 </p>
                                 <div className="flex justify-between text-gray-400">
                                   <span>Placed</span>
-                                  <span className="text-[#0D1B2A] font-medium">
+                                  <span className="text-[#111111] font-medium">
                                     {new Date(order.created_at).toLocaleDateString("en-ZA", { day:"numeric", month:"short", year:"numeric" })}
                                   </span>
                                 </div>
                                 <div className="flex justify-between text-gray-400">
                                   <span>Reference</span>
-                                  <span className="font-mono text-[#0D1B2A] font-bold">#{order.id.slice(0, 8).toUpperCase()}</span>
+                                  <span className="font-mono text-[#111111] font-bold">#{order.id.slice(0, 8).toUpperCase()}</span>
                                 </div>
                                 <div className="flex justify-between text-gray-400">
                                   <span>Status</span>
@@ -386,10 +386,10 @@ export default function AccountClient({ profile, orders }: Props) {
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
 
               {/* Card header */}
-              <div className="bg-gradient-to-r from-[#0D1B2A] to-[#1a2f45] px-6 py-5 flex items-center justify-between">
+              <div className="bg-gradient-to-r from-[#111111] to-[#1a2f45] px-6 py-5 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2ECC71] to-[#27AE60] flex items-center justify-center shadow-lg shadow-[#2ECC71]/20">
-                    <span className="text-[#0D1B2A] text-base font-black">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center shadow-lg shadow-[#7A5230]/20">
+                    <span className="text-[#111111] text-base font-black">
                       {initials(profile?.full_name, profile?.email)}
                     </span>
                   </div>
@@ -405,7 +405,7 @@ export default function AccountClient({ profile, orders }: Props) {
                 {!editing && (
                   <button
                     onClick={() => { setEditing(true); setSaveMsg(""); setSaveError(""); }}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-[#2ECC71] hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-[#7A5230] hover:text-white transition-colors"
                   >
                     <Pencil size={13} /> Edit
                   </button>
@@ -539,7 +539,7 @@ export default function AccountClient({ profile, orders }: Props) {
                       <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="flex-1 flex items-center justify-center gap-2 bg-[#2ECC71] hover:bg-[#27AE60] disabled:bg-gray-100 disabled:text-gray-400 text-[#0D1B2A] font-bold py-2.5 rounded-xl transition-colors text-sm"
+                        className="flex-1 flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-100 disabled:text-gray-400 text-white font-bold py-2.5 rounded-xl transition-colors text-sm"
                       >
                         {saving ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />}
                         {saving ? "Saving…" : "Save Changes"}
@@ -547,7 +547,7 @@ export default function AccountClient({ profile, orders }: Props) {
                       <button
                         onClick={cancelEdit}
                         disabled={saving}
-                        className="flex items-center gap-1.5 border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-[#0D1B2A] font-semibold py-2.5 px-5 rounded-xl transition-all text-sm"
+                        className="flex items-center gap-1.5 border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-[#111111] font-semibold py-2.5 px-5 rounded-xl transition-all text-sm"
                       >
                         <X size={14} /> Cancel
                       </button>
@@ -568,12 +568,12 @@ export default function AccountClient({ profile, orders }: Props) {
                             : "—" },
                       ].map(({ icon: Icon, label, value }) => (
                         <div key={label} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-                          <div className="w-8 h-8 bg-[#F4F6F8] rounded-lg flex items-center justify-center flex-shrink-0">
+                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-lg flex items-center justify-center flex-shrink-0">
                             <Icon size={14} className="text-gray-400" />
                           </div>
                           <div className="flex-1">
                             <p className="text-xs text-gray-400 uppercase tracking-wide">{label}</p>
-                            <p className="text-sm font-semibold text-[#0D1B2A] mt-0.5">{value}</p>
+                            <p className="text-sm font-semibold text-[#111111] mt-0.5">{value}</p>
                           </div>
                         </div>
                       ))}
@@ -586,10 +586,10 @@ export default function AccountClient({ profile, orders }: Props) {
                           <Home size={12} /> Default Shipping Address
                         </p>
                         <div className="flex items-start gap-4 py-2">
-                          <div className="w-8 h-8 bg-[#F4F6F8] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                             <MapPin size={14} className="text-gray-400" />
                           </div>
-                          <p className="text-sm text-[#0D1B2A] leading-relaxed">
+                          <p className="text-sm text-[#111111] leading-relaxed">
                             {[
                               profile?.address_line1,
                               profile?.address_line2,
@@ -605,7 +605,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                     <button
                       onClick={() => { setEditing(true); setSaveMsg(""); setSaveError(""); }}
-                      className="w-full mt-1 flex items-center justify-center gap-2 border border-dashed border-gray-200 hover:border-[#2ECC71] text-gray-400 hover:text-[#2ECC71] font-semibold py-2.5 rounded-xl transition-all text-sm"
+                      className="w-full mt-1 flex items-center justify-center gap-2 border border-dashed border-gray-200 hover:border-[#7A5230] text-gray-400 hover:text-[#7A5230] font-semibold py-2.5 rounded-xl transition-all text-sm"
                     >
                       <Pencil size={14} /> {hasAddress ? "Edit Profile & Address" : "Edit Profile"}
                     </button>
@@ -617,7 +617,7 @@ export default function AccountClient({ profile, orders }: Props) {
             {/* ── Sign out card ───────────────────────────────────────── */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold text-[#0D1B2A]">Sign out of your account</p>
+                <p className="text-sm font-semibold text-[#111111]">Sign out of your account</p>
                 <p className="text-xs text-gray-400 mt-0.5">You can sign back in anytime.</p>
               </div>
               <button

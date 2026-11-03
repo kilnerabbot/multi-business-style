@@ -199,8 +199,8 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="max-w-lg mx-auto px-4 py-24 text-center">
-        <p className="text-xl font-bold text-[#0D1B2A] mb-4">Your cart is empty</p>
-        <Link href="/shop" className="text-[#2ECC71] font-semibold hover:underline">
+        <p className="text-xl font-bold text-[#111111] mb-4">Your cart is empty</p>
+        <Link href="/shop" className="text-[#7A5230] font-semibold hover:underline">
           Back to shop
         </Link>
       </div>
@@ -211,19 +211,19 @@ export default function CheckoutPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <Link
         href="/cart"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#0D1B2A] mb-6 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#111111] mb-6 transition-colors"
       >
         <ChevronLeft size={16} /> Back to cart
       </Link>
 
-      <h1 className="text-3xl font-extrabold text-[#0D1B2A] mb-8">Checkout</h1>
+      <h1 className="text-3xl font-display font-medium text-[#111111] mb-8">Checkout</h1>
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
         {/* ── Left — Delivery form ─────────────────────────────────── */}
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-[#0D1B2A] mb-5">Delivery Information</h2>
+            <h2 className="text-lg font-display font-medium text-[#111111] mb-5">Delivery Information</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="First Name" required>
@@ -264,14 +264,14 @@ export default function CheckoutPage() {
             </div>
 
             {address.province && (
-              <div className="mt-4 flex items-start gap-3 bg-[#2ECC71]/10 border border-[#2ECC71]/30 rounded-xl p-3.5">
-                <Truck size={16} className="text-[#2ECC71] mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-[#0D1B2A]">
+              <div className="mt-4 flex items-start gap-3 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-xl p-3.5">
+                <Truck size={16} className="text-[#7A5230] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-[#111111]">
                   {isJhb
                     ? "Your order qualifies for our own Johannesburg delivery service."
                     : `Courier delivery to ${address.province}.`}{" "}
                   {deliveryFee === 0
-                    ? <strong className="text-[#2ECC71]">Free delivery on this order!</strong>
+                    ? <strong className="text-[#7A5230]">Free delivery on this order!</strong>
                     : <span>Delivery fee: <strong>{formatPrice(deliveryFee)}</strong></span>
                   }
                 </p>
@@ -281,7 +281,7 @@ export default function CheckoutPage() {
 
           {/* How it works */}
           <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h2 className="text-base font-bold text-[#0D1B2A] mb-4 flex items-center gap-2">
+            <h2 className="text-base font-display font-medium text-[#111111] mb-4 flex items-center gap-2">
               <MessageCircle size={16} className="text-[#25D366]" />
               How ordering works
             </h2>
@@ -305,8 +305,8 @@ export default function CheckoutPage() {
 
         {/* ── Right — Order summary ─────────────────────────────────── */}
         <div className="lg:col-span-1">
-          <div className="bg-[#F4F6F8] rounded-2xl p-6 sticky top-24 space-y-4">
-            <h2 className="text-lg font-bold text-[#0D1B2A]">Order Summary</h2>
+          <div className="bg-[#F4F0E6] rounded-2xl p-6 sticky top-24 space-y-4">
+            <h2 className="text-lg font-display font-medium text-[#111111]">Order Summary</h2>
 
             <ul className="space-y-3">
               {items.map((item, i) => (
@@ -315,7 +315,7 @@ export default function CheckoutPage() {
                     {item.product.name}{" "}
                     <span className="text-gray-400">× {item.quantity}</span>
                   </span>
-                  <span className="font-medium text-[#0D1B2A] flex-shrink-0">
+                  <span className="font-medium text-[#111111] flex-shrink-0">
                     {formatPrice((item.product.sale_price ?? item.product.price) * item.quantity)}
                   </span>
                 </li>
@@ -329,11 +329,11 @@ export default function CheckoutPage() {
               </div>
               <div className="flex justify-between text-gray-500">
                 <span>Delivery</span>
-                <span className={deliveryFee === 0 ? "text-[#2ECC71] font-semibold" : ""}>
+                <span className={deliveryFee === 0 ? "text-[#7A5230] font-semibold" : ""}>
                   {address.province ? (deliveryFee === 0 ? "Free" : formatPrice(deliveryFee)) : "—"}
                 </span>
               </div>
-              <div className="flex justify-between font-bold text-[#0D1B2A] text-base pt-2 border-t border-gray-200">
+              <div className="flex justify-between font-bold text-[#111111] text-base pt-2 border-t border-gray-200">
                 <span>Total</span>
                 <span>{formatPrice(orderTotal)}</span>
               </div>
@@ -373,7 +373,7 @@ export default function CheckoutPage() {
   );
 }
 
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71] transition-colors bg-[#F9FAFB]";
+const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
 
 function Field({ label, children, required, className }: {
   label: string; children: React.ReactNode; required?: boolean; className?: string;

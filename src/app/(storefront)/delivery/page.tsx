@@ -29,11 +29,11 @@ export default function DeliveryPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Header */}
       <motion.div {...fadeUp()} className="mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#2ECC71]/10 border border-[#2ECC71]/30 rounded-full px-4 py-1.5 mb-5">
-          <Truck size={14} className="text-[#2ECC71]" />
-          <span className="text-[#2ECC71] text-xs font-semibold tracking-widest uppercase">Delivery Info</span>
+        <div className="inline-flex items-center gap-2 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-full px-4 py-1.5 mb-5">
+          <Truck size={14} className="text-[#7A5230]" />
+          <span className="text-[#7A5230] text-xs font-semibold tracking-widest uppercase">Delivery Info</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0D1B2A] leading-tight">
+        <h1 className="text-4xl sm:text-5xl font-display font-medium text-[#111111] leading-tight">
           Delivery Information
         </h1>
         <p className="mt-4 text-gray-500 text-lg leading-relaxed max-w-2xl">
@@ -52,7 +52,7 @@ export default function DeliveryPage() {
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}>
               <Icon size={18} />
             </div>
-            <p className="font-bold text-[#0D1B2A]">{label}</p>
+            <p className="font-bold text-[#111111]">{label}</p>
             <p className="text-sm text-gray-400 mt-0.5">{desc}</p>
           </div>
         ))}
@@ -60,8 +60,8 @@ export default function DeliveryPage() {
 
       {/* Rates table */}
       <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden mb-8">
-        <div className="px-6 py-5 border-b border-gray-100 bg-[#F9FAFB]">
-          <h2 className="text-lg font-bold text-[#0D1B2A]">Delivery Rates by Province</h2>
+        <div className="px-6 py-5 border-b border-gray-100 bg-[#FAF8F3]">
+          <h2 className="text-lg font-display font-medium text-[#111111]">Delivery Rates by Province</h2>
           <p className="text-sm text-gray-400 mt-0.5">All prices include VAT</p>
         </div>
         <div className="overflow-x-auto">
@@ -79,26 +79,26 @@ export default function DeliveryPage() {
               {RATES.map((r) => (
                 <tr
                   key={r.zone}
-                  className={r.highlight ? "bg-[#2ECC71]/5" : "hover:bg-gray-50 transition-colors"}
+                  className={r.highlight ? "bg-[#7A5230]/5" : "hover:bg-gray-50 transition-colors"}
                 >
                   <td className="px-6 py-3.5">
                     <div className="flex items-center gap-2">
-                      <MapPin size={13} className={r.highlight ? "text-[#2ECC71]" : "text-gray-300"} />
-                      <span className={`font-medium ${r.highlight ? "text-[#0D1B2A]" : "text-gray-700"}`}>
+                      <MapPin size={13} className={r.highlight ? "text-[#7A5230]" : "text-gray-300"} />
+                      <span className={`font-medium ${r.highlight ? "text-[#111111]" : "text-gray-700"}`}>
                         {r.zone}
                       </span>
                       {r.highlight && (
-                        <span className="text-xs font-semibold text-[#2ECC71] bg-[#2ECC71]/15 px-2 py-0.5 rounded-full">
+                        <span className="text-xs font-semibold text-[#7A5230] bg-[#7A5230]/15 px-2 py-0.5 rounded-full">
                           Our fleet
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="px-6 py-3.5 font-semibold text-[#0D1B2A]">{formatPrice(r.rate)}</td>
-                  <td className="px-6 py-3.5 text-[#2ECC71] font-medium">{formatPrice(r.freeAbove)}</td>
+                  <td className="px-6 py-3.5 font-semibold text-[#111111]">{formatPrice(r.rate)}</td>
+                  <td className="px-6 py-3.5 text-[#7A5230] font-medium">{formatPrice(r.freeAbove)}</td>
                   <td className="px-6 py-3.5 text-gray-500">{r.days}</td>
                   <td className="px-6 py-3.5">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${r.highlight ? "bg-[#2ECC71]/15 text-[#27AE60]" : "bg-gray-100 text-gray-500"}`}>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${r.highlight ? "bg-[#7A5230]/15 text-[#3a2c1f]" : "bg-gray-100 text-gray-500"}`}>
                       {r.type}
                     </span>
                   </td>
@@ -111,7 +111,7 @@ export default function DeliveryPage() {
 
       {/* FAQs */}
       <motion.div {...fadeUp(0.2)} className="space-y-4">
-        <h2 className="text-xl font-bold text-[#0D1B2A] mb-5">Frequently asked questions</h2>
+        <h2 className="text-xl font-display font-medium text-[#111111] mb-5">Frequently asked questions</h2>
         {[
           {
             q: "When will my order ship?",
@@ -135,21 +135,21 @@ export default function DeliveryPage() {
           },
         ].map(({ q, a }) => (
           <div key={q} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <p className="font-semibold text-[#0D1B2A] mb-2">{q}</p>
+            <p className="font-semibold text-[#111111] mb-2">{q}</p>
             <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
           </div>
         ))}
       </motion.div>
 
       {/* CTA */}
-      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#0D1B2A] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#111111] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
         <div>
           <p className="text-white font-bold text-lg">Still have questions?</p>
           <p className="text-white/50 text-sm mt-1">Our team is happy to help with your delivery query.</p>
         </div>
         <a
           href="/contact"
-          className="flex-shrink-0 bg-[#2ECC71] hover:bg-[#27AE60] text-[#0D1B2A] font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
+          className="flex-shrink-0 bg-[#111111] hover:bg-[#3a2c1f] text-white font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
         >
           <Package size={16} /> Contact Us
         </a>

@@ -7,7 +7,7 @@ import FooterSocialLinks from "./FooterSocialLinks";
 // always reflect the latest admin settings without needing a redeploy.
 export default function Footer() {
   return (
-    <footer className="bg-[#0D1B2A] text-white mt-auto">
+    <footer className="bg-[#111111] text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <span className="text-white font-bold text-xl tracking-tight">
-                Multi<span className="text-[#2ECC71]">Business</span>
+                Multi<span className="text-[#7A5230]">Business</span>
                 <span className="block text-xs font-light text-white/50 tracking-widest uppercase mt-0.5">
                   Style
                 </span>
@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               {["Men", "Women", "Kids", "Accessories", "Sale"].map((item) => (
                 <li key={item}>
-                  <Link href={`/shop/${item.toLowerCase()}`} className="hover:text-[#2ECC71] transition-colors">
+                  <Link href={`/shop/${item.toLowerCase()}`} className="hover:text-[#7A5230] transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -54,7 +54,7 @@ export default function Footer() {
                 { label: "Contact Us",           href: "/contact" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-[#2ECC71] transition-colors">
+                  <Link href={item.href} className="hover:text-[#7A5230] transition-colors">
                     {item.label}
                   </Link>
                 </li>

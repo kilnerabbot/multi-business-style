@@ -66,11 +66,11 @@ export default function TrackOrderPage() {
         transition={{ duration: 0.5 }}
         className="mb-10 text-center"
       >
-        <div className="inline-flex items-center gap-2 bg-[#2ECC71]/10 border border-[#2ECC71]/30 rounded-full px-4 py-1.5 mb-5">
-          <Package size={14} className="text-[#2ECC71]" />
-          <span className="text-[#2ECC71] text-xs font-semibold tracking-widest uppercase">Order Tracking</span>
+        <div className="inline-flex items-center gap-2 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-full px-4 py-1.5 mb-5">
+          <Package size={14} className="text-[#7A5230]" />
+          <span className="text-[#7A5230] text-xs font-semibold tracking-widest uppercase">Order Tracking</span>
         </div>
-        <h1 className="text-4xl font-extrabold text-[#0D1B2A]">Track Your Order</h1>
+        <h1 className="text-4xl font-display font-medium text-[#111111]">Track Your Order</h1>
         <p className="mt-3 text-gray-400 leading-relaxed">
           Enter your order number and email address to check your delivery status.
         </p>
@@ -110,7 +110,7 @@ export default function TrackOrderPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2 bg-[#2ECC71] hover:bg-[#27AE60] disabled:bg-gray-200 disabled:text-gray-400 text-[#0D1B2A] font-bold py-3.5 rounded-xl transition-all"
+          className="w-full flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3.5 rounded-xl transition-all"
         >
           <Search size={16} />
           {loading ? "Searching…" : "Track Order"}
@@ -130,7 +130,7 @@ export default function TrackOrderPage() {
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-wide">Order reference</p>
-                <p className="font-bold text-[#0D1B2A] text-lg mt-0.5">
+                <p className="font-bold text-[#111111] text-lg mt-0.5">
                   #{order.id.slice(0, 8).toUpperCase()}
                 </p>
               </div>
@@ -151,7 +151,7 @@ export default function TrackOrderPage() {
                 {/* Line */}
                 <div className="absolute top-4 left-4 right-4 h-0.5 bg-gray-100 z-0" />
                 <div
-                  className="absolute top-4 left-4 h-0.5 bg-[#2ECC71] z-0 transition-all duration-700"
+                  className="absolute top-4 left-4 h-0.5 bg-[#7A5230] z-0 transition-all duration-700"
                   style={{ width: `${stepIndex > 0 ? (stepIndex / (STATUS_STEPS.length - 1)) * 100 : 0}%` }}
                 />
                 <div className="relative z-10 flex justify-between">
@@ -162,12 +162,12 @@ export default function TrackOrderPage() {
                       <div key={key} className="flex flex-col items-center gap-2 flex-1">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all ${
                           done
-                            ? "bg-[#2ECC71] border-[#2ECC71] text-[#0D1B2A]"
+                            ? "bg-[#111111] border-[#7A5230] text-white"
                             : "bg-white border-gray-200 text-gray-300"
-                        } ${active ? "ring-4 ring-[#2ECC71]/20 scale-110" : ""}`}>
+                        } ${active ? "ring-4 ring-[#7A5230]/20 scale-110" : ""}`}>
                           <Icon size={13} />
                         </div>
-                        <p className={`text-xs text-center leading-tight max-w-[60px] ${done ? "font-semibold text-[#0D1B2A]" : "text-gray-400"}`}>
+                        <p className={`text-xs text-center leading-tight max-w-[60px] ${done ? "font-semibold text-[#111111]" : "text-gray-400"}`}>
                           {label}
                         </p>
                       </div>
@@ -185,14 +185,14 @@ export default function TrackOrderPage() {
 
           {/* Delivery address */}
           <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h3 className="font-bold text-[#0D1B2A] mb-4 flex items-center gap-2">
-              <MapPin size={16} className="text-[#2ECC71]" /> Delivery Address
+            <h3 className="font-bold text-[#111111] mb-4 flex items-center gap-2">
+              <MapPin size={16} className="text-[#7A5230]" /> Delivery Address
             </h3>
             {(() => {
               const addr = order.shipping_address as unknown as Record<string, string>;
               return (
                 <address className="not-italic text-sm text-gray-600 leading-relaxed space-y-0.5">
-                  <p className="font-medium text-[#0D1B2A]">{addr.first_name} {addr.last_name}</p>
+                  <p className="font-medium text-[#111111]">{addr.first_name} {addr.last_name}</p>
                   <p>{addr.address_line1}{addr.address_line2 ? `, ${addr.address_line2}` : ""}</p>
                   <p>{addr.suburb}, {addr.city}</p>
                   <p>{addr.province}, {addr.postal_code}</p>
@@ -203,7 +203,7 @@ export default function TrackOrderPage() {
 
           {/* Order summary */}
           <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h3 className="font-bold text-[#0D1B2A] mb-4">Order Summary</h3>
+            <h3 className="font-bold text-[#111111] mb-4">Order Summary</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-gray-500">
                 <span>Subtotal</span>
@@ -213,7 +213,7 @@ export default function TrackOrderPage() {
                 <span>Delivery</span>
                 <span>{order.delivery_fee === 0 ? "Free" : formatPrice(order.delivery_fee)}</span>
               </div>
-              <div className="flex justify-between font-bold text-[#0D1B2A] pt-2 border-t border-gray-100">
+              <div className="flex justify-between font-bold text-[#111111] pt-2 border-t border-gray-100">
                 <span>Total paid</span>
                 <span>{formatPrice(order.total)}</span>
               </div>
@@ -223,7 +223,7 @@ export default function TrackOrderPage() {
           {/* Help CTA */}
           <div className="text-center text-sm text-gray-400">
             Questions about your order?{" "}
-            <Link href="/contact" className="text-[#2ECC71] font-semibold hover:underline">
+            <Link href="/contact" className="text-[#7A5230] font-semibold hover:underline">
               Contact us
             </Link>
           </div>
@@ -233,7 +233,7 @@ export default function TrackOrderPage() {
       {/* Signed-in tip */}
       <p className="text-center text-sm text-gray-400 mt-8">
         Have an account?{" "}
-        <Link href="/account" className="text-[#2ECC71] font-semibold hover:underline">
+        <Link href="/account" className="text-[#7A5230] font-semibold hover:underline">
           View all your orders
         </Link>{" "}
         from your dashboard.
@@ -243,4 +243,4 @@ export default function TrackOrderPage() {
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71] transition-colors bg-[#F9FAFB]";
+const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";

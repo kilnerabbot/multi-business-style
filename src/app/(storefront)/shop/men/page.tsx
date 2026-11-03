@@ -38,8 +38,8 @@ export default async function MenPage() {
         title="For Him"
         subtitle="Men's Collection"
         description="Sharp fits, bold statements, and everyday essentials. Dress the way you move."
-        gradient="bg-gradient-to-br from-[#0D1B2A] via-[#1a2f45] to-[#0a2218]"
-        accent="#2ECC71"
+        gradient="bg-gradient-to-br from-[#111111] via-[#1a2f45] to-[#0a2218]"
+        accent="#7A5230"
         tag="New Arrivals"
         cta={{ label: "Shop All Men's", href: "/shop/men" }}
       />

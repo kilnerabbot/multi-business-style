@@ -82,7 +82,7 @@ export default function FooterSocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-white/40 hover:text-[#2ECC71] transition-colors"
+          className="text-white/40 hover:text-[#7A5230] transition-colors"
         >
           {icon}
         </a>

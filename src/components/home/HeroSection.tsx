@@ -1,209 +1,50 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
-const PANELS = [
-  {
-    id: "men",
-    label: "Men",
-    sub: "New Collection",
-    href: "/shop/men",
-    img: "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=900&h=1200&fit=crop&crop=top",
-    accent: "#2ECC71",
-    span: "row-span-2", // tall left panel
-  },
-  {
-    id: "women",
-    label: "Women",
-    sub: "Fresh Arrivals",
-    href: "/shop/women",
-    img: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=900&h=700&fit=crop&crop=top",
-    accent: "#a78bfa",
-    span: "row-span-1",
-  },
-  {
-    id: "kids",
-    label: "Kids",
-    sub: "Bright Styles",
-    href: "/shop/kids",
-    img: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=900&h=700&fit=crop&crop=top",
-    accent: "#34d399",
-    span: "row-span-1",
-  },
-];
+interface HeroProps {
+  images: string[];
+}
 
-export default function HeroSection() {
+export default function HeroSection({ images }: HeroProps) {
+  const [a, b] = images;
+
   return (
-    <section className="w-full bg-[#0D1B2A]">
-      {/* Top banner strip */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center justify-between px-6 sm:px-10 py-4 border-b border-white/10"
-      >
-        <p className="text-white/40 text-xs uppercase tracking-[0.2em] font-medium hidden sm:block">
-          New Season — 2026
-        </p>
-        <h2 className="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase">
-          Your Style, <span className="text-[#2ECC71]">Your Way.</span>
-        </h2>
-        <Link
-          href="/shop"
-          className="flex items-center gap-1 text-xs font-semibold text-[#2ECC71] hover:text-white transition-colors uppercase tracking-widest"
-        >
-          Shop All <ArrowUpRight size={12} />
-        </Link>
-      </motion.div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#E9DCC8] via-[#DCC8AB] to-[#CDB591]">
+      {/* soft window-light shapes */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 right-[18%] w-[34rem] h-[48rem] bg-white/20 rotate-[14deg] blur-2xl" />
+        <div className="absolute top-10 right-[6%] w-40 h-[40rem] bg-white/15 rotate-[14deg] blur-xl" />
+      </div>
 
-      {/* Editorial grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-[auto] sm:grid-rows-2 h-[85vh] sm:h-[88vh] min-h-[520px]">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-[1.1fr_1fr] items-center min-h-[34rem] lg:min-h-[41rem] py-14 lg:py-0">
+        <div className="max-w-xl">
+          <p className="font-label text-[0.78rem] text-[#6B4A2B] mb-6">New season</p>
+          <h1 className="font-display text-[2.9rem] sm:text-[4rem] lg:text-[4.6rem] leading-[1.04] text-black">
+            Dressed for the day
+            <span className="block text-[#7A5230]">you&apos;re having.</span>
+          </h1>
+          <p className="mt-7 text-[1.02rem] leading-relaxed text-neutral-800 max-w-md">
+            Everyday clothing and accessories for men, women and kids, chosen to wear hard and look good doing it.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-6">
+            <Link href="/shop" className="btn-ink">Shop the edit</Link>
+            <Link href="/shop/sale" className="text-[0.95rem] text-black underline underline-offset-4 decoration-black/30 hover:decoration-black">
+              See what&apos;s on sale
+            </Link>
+          </div>
+        </div>
 
-        {/* Left — Men (tall, spans 2 rows) */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative sm:row-span-2 overflow-hidden group cursor-pointer"
-          style={{ minHeight: "320px" }}
-        >
-          <Link href="/shop/men" className="block w-full h-full">
-            <Image
-              src={PANELS[0].img}
-              alt="Men's Collection"
-              fill
-              priority
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            {/* Dark gradient at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-            {/* Label */}
-            <div className="absolute bottom-0 left-0 p-6 sm:p-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-                <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.25em] mb-1">
-                  {PANELS[0].sub}
-                </p>
-                <h3 className="text-white font-extrabold text-4xl sm:text-5xl uppercase leading-none tracking-tight">
-                  {PANELS[0].label}
-                </h3>
-                <div className="mt-4 inline-flex items-center gap-2 border border-white/30 hover:border-[#2ECC71] hover:bg-[#2ECC71] hover:text-[#0D1B2A] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 transition-all duration-300 group/btn">
-                  Shop Now
-                  <ArrowUpRight size={12} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                </div>
-              </motion.div>
+        {/* Product pair, or quiet placeholder panels until images exist */}
+        <div className="hidden lg:flex justify-end gap-5 items-end h-full pt-12">
+          {[a, b].map((src, i) => (
+            <div key={i}
+              className={`relative w-[17rem] overflow-hidden bg-[#F4EBDC] ${i === 0 ? "h-[27rem]" : "h-[31rem] mb-10"}`}>
+              {src ? (
+                <Image src={src} alt="" fill priority={i === 0} sizes="272px" className="object-cover" />
+              ) : null}
             </div>
-
-            {/* Accent line on hover */}
-            <div
-              className="absolute left-0 top-0 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"
-              style={{ backgroundColor: PANELS[0].accent }}
-            />
-          </Link>
-        </motion.div>
-
-        {/* Top-right — Women */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="relative overflow-hidden group cursor-pointer border-l border-white/5"
-          style={{ minHeight: "260px" }}
-        >
-          <Link href="/shop/women" className="block w-full h-full">
-            <Image
-              src={PANELS[1].img}
-              alt="Women's Collection"
-              fill
-              priority
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-            <div className="absolute bottom-0 left-0 p-5 sm:p-7">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              >
-                <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.25em] mb-1">
-                  {PANELS[1].sub}
-                </p>
-                <h3 className="text-white font-extrabold text-3xl sm:text-4xl uppercase leading-none tracking-tight">
-                  {PANELS[1].label}
-                </h3>
-              </motion.div>
-            </div>
-
-            <div
-              className="absolute left-0 top-0 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"
-              style={{ backgroundColor: PANELS[1].accent }}
-            />
-          </Link>
-        </motion.div>
-
-        {/* Bottom-right — Kids */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="relative overflow-hidden group cursor-pointer border-l border-white/5 border-t border-t-white/5"
-          style={{ minHeight: "260px" }}
-        >
-          <Link href="/shop/kids" className="block w-full h-full">
-            <Image
-              src={PANELS[2].img}
-              alt="Kids' Collection"
-              fill
-              className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-            <div className="absolute bottom-0 left-0 p-5 sm:p-7">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-              >
-                <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.25em] mb-1">
-                  {PANELS[2].sub}
-                </p>
-                <h3 className="text-white font-extrabold text-3xl sm:text-4xl uppercase leading-none tracking-tight">
-                  {PANELS[2].label}
-                </h3>
-              </motion.div>
-            </div>
-
-            {/* Bottom-right: sale badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9, duration: 0.4 }}
-              className="absolute top-5 right-5"
-            >
-              <Link
-                href="/shop/sale"
-                className="flex flex-col items-center justify-center w-16 h-16 rounded-full bg-[#2ECC71] text-[#0D1B2A] font-extrabold text-xs uppercase tracking-tight leading-tight hover:scale-110 transition-transform text-center"
-              >
-                <span>Up to</span>
-                <span className="text-base leading-none">40%</span>
-                <span>off</span>
-              </Link>
-            </motion.div>
-
-            <div
-              className="absolute left-0 top-0 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"
-              style={{ backgroundColor: PANELS[2].accent }}
-            />
-          </Link>
-        </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

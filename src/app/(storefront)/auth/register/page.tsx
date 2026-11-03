@@ -58,7 +58,7 @@ export default function RegisterPage() {
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-extrabold text-[#0D1B2A]">Create account</h1>
+          <h1 className="text-3xl font-display font-medium text-[#111111]">Create account</h1>
           <p className="text-gray-400 mt-2">Join Multi Business Style today</p>
         </div>
 
@@ -68,7 +68,7 @@ export default function RegisterPage() {
           <button
             onClick={handleGoogle}
             disabled={googleLoading}
-            className="w-full flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-xl py-2.5 text-sm font-semibold text-[#0D1B2A] transition-all disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-xl py-2.5 text-sm font-semibold text-[#111111] transition-all disabled:opacity-60"
           >
             {googleLoading ? (
               <span className="w-4 h-4 border-2 border-gray-300 border-t-[#4285F4] rounded-full animate-spin" />
@@ -107,7 +107,7 @@ export default function RegisterPage() {
                     className={cn(inputCls, "pr-10")} placeholder="••••••••" />
                   {field === "password" && (
                     <button type="button" onClick={() => setShowPw(!showPw)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#0D1B2A]">
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#111111]">
                       {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
                     </button>
                   )}
@@ -118,14 +118,14 @@ export default function RegisterPage() {
             {error && <p className="text-sm text-red-500 bg-red-50 rounded-lg px-3 py-2">{error}</p>}
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[#2ECC71] hover:bg-[#27AE60] disabled:bg-gray-200 disabled:text-gray-400 text-[#0D1B2A] font-bold py-3 rounded-xl transition-colors">
+              className="w-full bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-xl transition-colors">
               {loading ? "Creating account…" : "Create Account"}
             </button>
           </form>
 
           <p className="text-center text-sm text-gray-400">
             Already have an account?{" "}
-            <Link href="/auth/login" className="text-[#2ECC71] font-semibold hover:underline">
+            <Link href="/auth/login" className="text-[#7A5230] font-semibold hover:underline">
               Sign in
             </Link>
           </p>
@@ -136,4 +136,4 @@ export default function RegisterPage() {
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0D1B2A] focus:outline-none focus:border-[#2ECC71] transition-colors bg-[#F9FAFB]";
+const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";

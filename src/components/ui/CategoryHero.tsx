@@ -58,7 +58,7 @@ export default function CategoryHero({
           <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: accent }}>
             {subtitle}
           </p>
-          <h1 className="text-5xl sm:text-6xl font-extrabold text-white leading-tight tracking-tight">
+          <h1 className="text-5xl sm:text-6xl font-display font-medium text-white leading-tight tracking-tight">
             {title}
           </h1>
           <p className="mt-4 text-white/60 text-lg leading-relaxed">{description}</p>
@@ -66,7 +66,7 @@ export default function CategoryHero({
             <Link
               href={cta.href}
               className="group mt-7 inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg"
-              style={{ background: accent, color: "#0D1B2A" }}
+              style={{ background: accent, color: "#111111" }}
             >
               {cta.label}
               <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />

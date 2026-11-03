@@ -15,11 +15,11 @@ export default function ReturnsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Header */}
       <motion.div {...fadeUp()} className="mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#2ECC71]/10 border border-[#2ECC71]/30 rounded-full px-4 py-1.5 mb-5">
-          <RotateCcw size={14} className="text-[#2ECC71]" />
-          <span className="text-[#2ECC71] text-xs font-semibold tracking-widest uppercase">Returns Policy</span>
+        <div className="inline-flex items-center gap-2 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-full px-4 py-1.5 mb-5">
+          <RotateCcw size={14} className="text-[#7A5230]" />
+          <span className="text-[#7A5230] text-xs font-semibold tracking-widest uppercase">Returns Policy</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0D1B2A] leading-tight">
+        <h1 className="text-4xl sm:text-5xl font-display font-medium text-[#111111] leading-tight">
           Returns &amp; Exchanges
         </h1>
         <p className="mt-4 text-gray-500 text-lg leading-relaxed max-w-2xl">
@@ -38,7 +38,7 @@ export default function ReturnsPage() {
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}>
               <Icon size={18} />
             </div>
-            <p className="font-bold text-[#0D1B2A]">{label}</p>
+            <p className="font-bold text-[#111111]">{label}</p>
             <p className="text-sm text-gray-400 mt-0.5">{desc}</p>
           </div>
         ))}
@@ -47,7 +47,7 @@ export default function ReturnsPage() {
       <div className="space-y-8">
         {/* Eligibility */}
         <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
-          <h2 className="text-xl font-bold text-[#0D1B2A] mb-5">What can be returned?</h2>
+          <h2 className="text-xl font-display font-medium text-[#111111] mb-5">What can be returned?</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <p className="text-sm font-semibold text-green-600 uppercase tracking-wide mb-3 flex items-center gap-1.5">
@@ -90,7 +90,7 @@ export default function ReturnsPage() {
 
         {/* How to return */}
         <motion.div {...fadeUp(0.2)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
-          <h2 className="text-xl font-bold text-[#0D1B2A] mb-6">How to return or exchange</h2>
+          <h2 className="text-xl font-display font-medium text-[#111111] mb-6">How to return or exchange</h2>
           <div className="space-y-5">
             {[
               { step: "01", title: "Contact us", desc: "Email returns@multibusinessstyle.co.za with your order number and reason for return. We'll respond within 1 business day." },
@@ -100,11 +100,11 @@ export default function ReturnsPage() {
               { step: "05", title: "Refund or exchange processed", desc: "Once we receive and inspect the item (2–3 business days), your refund or exchange will be processed within 5–7 business days." },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-5">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2ECC71]/15 flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#2ECC71]">{step}</span>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#7A5230]/15 flex items-center justify-center">
+                  <span className="text-xs font-bold text-[#7A5230]">{step}</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0D1B2A]">{title}</p>
+                  <p className="font-semibold text-[#111111]">{title}</p>
                   <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -114,23 +114,23 @@ export default function ReturnsPage() {
 
         {/* Refunds */}
         <motion.div {...fadeUp(0.25)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
-          <h2 className="text-xl font-bold text-[#0D1B2A] mb-4">Refunds</h2>
+          <h2 className="text-xl font-display font-medium text-[#111111] mb-4">Refunds</h2>
           <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
-            <p>Approved refunds are issued to your original payment method via PayFast within <strong className="text-[#0D1B2A]">5–7 business days</strong> of us receiving the returned item.</p>
+            <p>Approved refunds are issued to your original payment method via PayFast within <strong className="text-[#111111]">5–7 business days</strong> of us receiving the returned item.</p>
             <p>If you paid by EFT or credit card, your bank may take an additional 2–3 days to reflect the credit.</p>
-            <p>Original delivery fees are <strong className="text-[#0D1B2A]">non-refundable</strong> unless the item was faulty or incorrectly sent.</p>
+            <p>Original delivery fees are <strong className="text-[#111111]">non-refundable</strong> unless the item was faulty or incorrectly sent.</p>
           </div>
         </motion.div>
 
         {/* Faulty items */}
         <motion.div {...fadeUp(0.3)} className="bg-[#FFF7ED] border border-orange-100 rounded-2xl p-7">
-          <h2 className="text-xl font-bold text-[#0D1B2A] mb-3">Received a faulty or incorrect item?</h2>
+          <h2 className="text-xl font-display font-medium text-[#111111] mb-3">Received a faulty or incorrect item?</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
             If your item arrived damaged, defective, or different from what you ordered, we'll cover all return costs and either replace the item or issue a full refund — your choice.
           </p>
           <a
             href="mailto:returns@multibusinessstyle.co.za"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#0D1B2A] bg-[#2ECC71] hover:bg-[#27AE60] px-5 py-2.5 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#111111] hover:bg-[#3a2c1f] px-5 py-2.5 rounded-xl transition-colors"
           >
             <Mail size={15} /> Email us immediately
           </a>

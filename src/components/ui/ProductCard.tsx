@@ -21,8 +21,8 @@ export default function ProductCard({ product, className }: ProductCardProps) {
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
-    const size = product.sizes?.[0] ?? "One Size";
-    const color = product.colors?.[0] ?? "Default";
+    const size = product.sizes?.[0] ?? "";
+    const color = product.colors?.[0] ?? "";
     addItem(product, size, color);
   };
 
@@ -36,7 +36,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
     >
       <Link href={`/products/${product.slug}`} className="block">
         {/* Image */}
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F4F6F8]">
+        <div className="relative aspect-[3/4] overflow-hidden bg-[#F4F0E6]">
           {product.images?.[0] ? (
             <Image
               src={product.images[0]}
@@ -47,24 +47,24 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <ShoppingBag size={40} className="text-gray-300" />
+              <ShoppingBag size={36} className="text-[#CDBFA6]" />
             </div>
           )}
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-1.5">
             {discount && (
-              <span className="bg-[#2ECC71] text-[#0D1B2A] text-xs font-bold px-2 py-0.5 rounded-full">
+              <span className="bg-black text-white text-[0.68rem] font-medium px-2.5 py-1">
                 -{discount}%
               </span>
             )}
             {product.featured && (
-              <span className="bg-[#0D1B2A] text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+              <span className="bg-white text-black text-[0.68rem] font-medium px-2.5 py-1">
                 Featured
               </span>
             )}
             {product.stock === 0 && (
-              <span className="bg-red-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+              <span className="bg-[#7A5230] text-white text-[0.68rem] font-medium px-2.5 py-1">
                 Sold Out
               </span>
             )}
@@ -83,21 +83,20 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           {product.stock > 0 && (
             <button
               onClick={handleQuickAdd}
-              className="absolute bottom-3 left-3 right-3 bg-[#0D1B2A] hover:bg-[#2ECC71] text-white hover:text-[#0D1B2A] text-xs font-semibold py-2.5 rounded-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200 flex items-center justify-center gap-1.5"
+              className="absolute bottom-3 left-3 right-3 bg-black hover:bg-[#3a2c1f] text-white font-label text-[0.72rem] uppercase tracking-wider py-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200 flex items-center justify-center gap-1.5"
             >
-              <ShoppingBag size={13} /> Quick Add
+              <ShoppingBag size={13} /> Add to bag
             </button>
           )}
         </div>
 
         {/* Info */}
         <div className="mt-3 px-0.5">
-          <p className="text-xs text-gray-400 uppercase tracking-wide">{product.gender}</p>
-          <h3 className="text-sm font-semibold text-[#0D1B2A] mt-0.5 line-clamp-2 leading-snug">
+          <h3 className="font-display text-[1.02rem] text-black line-clamp-2 leading-snug">
             {product.name}
           </h3>
-          <div className="flex items-center gap-2 mt-1.5">
-            <span className="text-sm font-bold text-[#0D1B2A]">
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-sm text-black">
               {formatPrice(product.sale_price ?? product.price)}
             </span>
             {product.sale_price && (
