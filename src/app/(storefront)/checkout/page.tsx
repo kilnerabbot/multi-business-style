@@ -9,6 +9,7 @@ import {
 } from "@/lib/delivery";
 import { ShippingAddress, CartItem } from "@/types";
 import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import { ChevronLeft, Truck, MessageCircle } from "lucide-react";
 
@@ -81,6 +82,41 @@ export default function CheckoutPage() {
   const [loading,  setLoading]  = useState(false);
   const [error,    setError]    = useState("");
   const [waNumber, setWaNumber] = useState("");
+
+  // Prefill the form from the logged-in customer's saved profile
+  useEffect(() => {
+    const supabase = createClient();
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const { data: p } = await supabase
+        .from("profiles")
+        .select("full_name, phone, address_line1, address_line2, suburb, city, province, postal_code")
+        .eq("id", user.id)
+        .single();
+      const [first = "", ...rest] = (p?.full_name ?? "").trim().split(/\s+/);
+      const saved: Partial<ShippingAddress> = {
+        first_name: first,
+        last_name: rest.join(" "),
+        email: user.email ?? "",
+        phone: p?.phone ?? "",
+        address_line1: p?.address_line1 ?? "",
+        address_line2: p?.address_line2 ?? "",
+        suburb: p?.suburb ?? "",
+        city: p?.city ?? "",
+        province: p?.province ?? "",
+        postal_code: p?.postal_code ?? "",
+      };
+      // Only fill fields the customer hasn't typed into yet
+      setAddress((prev) => {
+        const next = { ...prev };
+        (Object.keys(saved) as (keyof ShippingAddress)[]).forEach((k) => {
+          if (!prev[k] && saved[k]) next[k] = saved[k] as string;
+        });
+        return next;
+      });
+    })().catch(() => {});
+  }, []);
 
   // Fetch the WhatsApp order number from site settings
   useEffect(() => {
