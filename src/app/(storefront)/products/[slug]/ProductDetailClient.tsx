@@ -3,12 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag, Heart, Truck, RotateCcw, Minus, Plus } from "lucide-react";
+import { ShoppingBag, Truck, RotateCcw, Minus, Plus } from "lucide-react";
 import { Product } from "@/types";
 import { formatPrice, cn } from "@/lib/utils";
 import { FREE_DELIVERY_ABOVE } from "@/lib/delivery";
 import { useCartStore } from "@/store/cart";
 import ProductCard from "@/components/ui/ProductCard";
+import WishlistButton from "@/components/ui/WishlistButton";
 
 interface Props {
   product: Product;
@@ -151,10 +152,11 @@ export default function ProductDetailClient({ product, related }: Props) {
               <ShoppingBag size={16} />
               {soldOut ? "Out of stock" : added ? "Added to bag" : "Add to bag"}
             </button>
-            <button aria-label="Save for later"
-              className="p-3.5 border border-[#D9D1BF] text-neutral-500 hover:text-black hover:border-black transition-colors">
-              <Heart size={18} />
-            </button>
+            <WishlistButton
+              productId={product.id}
+              size={18}
+              className="p-3.5 border border-[#D9D1BF] text-neutral-500 hover:text-black hover:border-black"
+            />
           </div>
 
           <ul className="mt-9 space-y-3 border-t border-[#EFEAE0] pt-6 text-sm text-neutral-700">

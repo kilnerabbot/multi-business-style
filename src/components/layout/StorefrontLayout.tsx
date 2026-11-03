@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CartDrawer from "./CartDrawer";
+import WishlistSync from "./WishlistSync";
 import { createAdminClient } from "@/lib/supabase/server";
 
 export interface NavCategory { name: string; slug: string }
@@ -24,6 +25,7 @@ export default async function StorefrontLayout({ children }: { children: React.R
     <>
       <Navbar categories={categories} />
       <CartDrawer />
+      <WishlistSync />
       <main className="flex-1">{children}</main>
       <Footer />
     </>

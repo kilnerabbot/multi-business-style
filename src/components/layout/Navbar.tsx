@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { ShoppingBag, User, Menu, X, Search } from "lucide-react";
+import { ShoppingBag, User, Menu, X, Search, Heart } from "lucide-react";
+import { useWishlistStore } from "@/store/wishlist";
 import { useCartStore } from "@/store/cart";
 import { cn } from "@/lib/utils";
 import { formatPrice } from "@/lib/utils";
@@ -18,6 +19,7 @@ export default function Navbar({ categories }: { categories: NavCategory[] }) {
   const { toggleCart, itemCount } = useCartStore();
   const [mounted, setMounted] = useState(false);
   const count = itemCount();
+  const wishCount = useWishlistStore((s) => s.ids.length);
 
   useEffect(() => setMounted(true), []);
   useEffect(() => { setMobileOpen(false); }, [pathname]);
@@ -79,6 +81,14 @@ export default function Navbar({ categories }: { categories: NavCategory[] }) {
               <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search"
                 aria-label="Search products" className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400" />
             </form>
+            <Link href="/wishlist" aria-label="Wishlist" className="relative p-1">
+              <Heart size={21} />
+              {mounted && wishCount > 0 && (
+                <span className="absolute -top-1.5 -right-2 bg-black text-white text-[0.62rem] font-semibold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">
+                  {wishCount > 99 ? "99+" : wishCount}
+                </span>
+              )}
+            </Link>
             <button onClick={toggleCart} aria-label="Open bag" className="relative p-1">
               <ShoppingBag size={21} />
               {mounted && count > 0 && (

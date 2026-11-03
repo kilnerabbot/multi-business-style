@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
+import WishlistButton from "@/components/ui/WishlistButton";
 import { motion } from "framer-motion";
 import { Product } from "@/types";
 import { formatPrice, cn } from "@/lib/utils";
@@ -71,13 +72,10 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           </div>
 
           {/* Wishlist */}
-          <button
-            onClick={(e) => e.preventDefault()}
-            className="absolute top-3 right-3 bg-white/90 hover:bg-white text-gray-400 hover:text-red-400 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-sm"
-            aria-label="Add to wishlist"
-          >
-            <Heart size={14} />
-          </button>
+          <WishlistButton
+            productId={product.id}
+            className="absolute top-3 right-3 bg-white/95 hover:bg-white text-neutral-700 p-2 rounded-full shadow-sm"
+          />
 
           {/* Quick Add */}
           {product.stock > 0 && (
