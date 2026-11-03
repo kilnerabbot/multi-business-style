@@ -87,18 +87,18 @@ export default function CheckoutPage() {
   useEffect(() => {
     const supabase = createClient();
     (async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
-      const { data: p } = await supabase
-        .from("profiles")
-        .select("full_name, phone, address_line1, address_line2, suburb, city, province, postal_code")
-        .eq("id", user.id)
-        .single();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const res = await fetch("/api/profile", {
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      });
+      if (!res.ok) return;
+      const { profile: p, email } = await res.json();
       const [first = "", ...rest] = (p?.full_name ?? "").trim().split(/\s+/);
       const saved: Partial<ShippingAddress> = {
         first_name: first,
         last_name: rest.join(" "),
-        email: user.email ?? "",
+        email: email ?? "",
         phone: p?.phone ?? "",
         address_line1: p?.address_line1 ?? "",
         address_line2: p?.address_line2 ?? "",

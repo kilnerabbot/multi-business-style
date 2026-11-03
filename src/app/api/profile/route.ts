@@ -7,6 +7,29 @@ const adminDb = () =>
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
+export async function GET(req: NextRequest) {
+  const token = req.headers.get("Authorization")?.replace("Bearer ", "");
+  if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const db = adminDb();
+  const { data: { user }, error: authError } = await db.auth.getUser(token);
+  if (authError || !user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { data, error } = await db
+    .from("profiles")
+    .select("full_name, phone, address_line1, address_line2, suburb, city, province, postal_code")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (error) {
+    console.error("[profile GET]", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+  return NextResponse.json({ profile: data, email: user.email ?? "" });
+}
+
 export async function PATCH(req: NextRequest) {
   // Verify the user via their JWT passed in the Authorization header
   const token = req.headers.get("Authorization")?.replace("Bearer ", "");
