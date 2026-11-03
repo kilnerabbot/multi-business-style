@@ -62,7 +62,7 @@ export default function ProductDetailClient({ product, related }: Props) {
                 <button key={i} onClick={() => setSelectedImage(i)} aria-label={`Show image ${i + 1}`}
                   className={cn("relative flex-shrink-0 w-16 h-20 overflow-hidden border transition-colors",
                     selectedImage === i ? "border-black" : "border-transparent opacity-70 hover:opacity-100")}>
-                  <Image src={img} alt="" fill sizes="64px" className="object-cover" />
+                  <Image src={img} alt={`${product.name}, view ${i + 1}`} fill sizes="64px" className="object-cover" />
                 </button>
               ))}
             </div>
@@ -168,7 +168,7 @@ export default function ProductDetailClient({ product, related }: Props) {
 
       {related.length > 0 && (
         <section className="mt-24 pt-14 border-t border-[#EFEAE0]">
-          <p className="font-label text-[0.74rem] text-neutral-500 mb-2 uppercase tracking-wider">Complete the look</p>
+          <p className="font-label text-[0.74rem] text-neutral-500 mb-2 uppercase tracking-wider">More to explore</p>
           <h2 className="font-display text-3xl sm:text-[2.2rem] text-black mb-9">You might also like</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-10">
             {related.map((p) => <ProductCard key={p.id} product={p} />)}
