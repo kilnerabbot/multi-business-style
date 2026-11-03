@@ -16,13 +16,24 @@ async function checkAdmin() {
   return session === (process.env.MBS_ADMIN_SECRET ?? "mbs-fallback-secret");
 }
 
+// "body-cream" -> "body-cream-2" -> "body-cream-3" when the address is already taken
+async function uniqueSlug(name: string) {
+  const base = slugify(name) || "product";
+  const { data } = await adminDb().from("products").select("slug").like("slug", `${base}%`);
+  const taken = new Set((data ?? []).map((r) => r.slug));
+  if (!taken.has(base)) return base;
+  let n = 2;
+  while (taken.has(`${base}-${n}`)) n++;
+  return `${base}-${n}`;
+}
+
 export async function POST(req: NextRequest) {
   if (!(await checkAdmin())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
   const payload = {
     name: body.name,
-    slug: slugify(body.name),
+    slug: await uniqueSlug(body.name),
     description: body.description,
     price: parseFloat(body.price),
     sale_price: body.sale_price ? parseFloat(body.sale_price) : null,
