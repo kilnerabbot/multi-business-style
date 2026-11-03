@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createAdminClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,6 +12,14 @@ export async function POST(req: NextRequest) {
 
     const supabase = await createAdminClient();
 
+    // Link the order to the logged-in customer, if any
+    let customerId: string | null = null;
+    try {
+      const auth = await createClient();
+      const { data: { user } } = await auth.auth.getUser();
+      customerId = user?.id ?? null;
+    } catch { /* guest checkout */ }
+
     const { data: order, error } = await supabase
       .from("orders")
       .insert({
@@ -23,6 +31,7 @@ export async function POST(req: NextRequest) {
         suburb:           address.suburb,
         shipping_address: address,
         guest_email:      address.email,
+        customer_id:      customerId,
         status:           "pending",
       })
       .select()

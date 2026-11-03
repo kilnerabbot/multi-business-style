@@ -34,7 +34,7 @@ export default async function AccountPage() {
     const { data } = await db
       .from("orders")
       .select("*")
-      .eq("customer_id", user.id)
+      .or(user.email ? `customer_id.eq.${user.id},guest_email.ilike.${user.email}` : `customer_id.eq.${user.id}`)
       .order("created_at", { ascending: false });
     orders = (data as Order[]) ?? [];
   } catch { /* no orders */ }
