@@ -1,0 +1,25 @@
+name,description,price,sale_price,category,gender,stock,featured,active,sizes,colors
+Classic Fit Polo Shirt,A timeless polo shirt crafted from breathable piqué cotton. Perfect for smart-casual occasions.,299,,Men,men,24,true,true,S|M|L|XL|XXL,white|navy|green
+Slim Fit Chino Pants,Versatile slim-fit chinos in stretch cotton. Goes from office to weekend with ease.,449,,Men,men,18,false,true,30|32|34|36|38,brown|black|khaki
+Graphic Print Hoodie,Street-ready heavyweight hoodie with bold graphic print. Fleece-lined for extra warmth.,599,399,Men,men,12,true,true,S|M|L|XL,black|grey|navy
+Cargo Shorts,Practical cargo shorts with deep side pockets. Ideal for warm South African days.,349,,Men,men,20,false,true,S|M|L|XL,khaki|black|olive
+Formal Button-Down Shirt,Crisp long-sleeve formal shirt in wrinkle-resistant fabric. Office-ready and polished.,499,,Men,men,15,false,true,S|M|L|XL|XXL,white|light blue|green
+Floral Wrap Dress,Elegant wrap dress in lightweight viscose with a bold floral print. Flattering on every shape.,549,,Women,women,14,true,true,XS|S|M|L|XL,floral pink|floral blue
+High-Waist Denim Jeans,Classic high-waist jeans in stretch denim. Sculpting fit with a vintage-inspired wash.,599,,Women,women,22,true,true,6|8|10|12|14,light blue|dark blue|black
+Cropped Ribbed Tee,Soft ribbed crop tee with a snug fit. Pairs perfectly with high-waist bottoms.,249,179,Women,women,30,false,true,XS|S|M|L,white|black|green|coral
+Pleated Midi Skirt,Flowing pleated midi skirt in satin-finish fabric. Effortlessly elegant for any occasion.,449,299,Women,women,10,false,true,XS|S|M|L|XL,blush|black|forest green
+Oversized Blazer,Power-dressing oversized blazer with structured shoulders. Layer over anything for instant polish.,799,,Women,women,8,true,true,XS|S|M|L,camel|black|chalk white
+Cartoon Print Tee,Fun and vibrant kids tee with cheerful cartoon print. 100% soft cotton for all-day comfort.,149,,Kids,kids,35,false,true,3-4Y|5-6Y|7-8Y|9-10Y|11-12Y,yellow|coral|green
+Denim Dungarees,Classic denim dungarees with adjustable straps. Durable enough for the playground.,299,,Kids,kids,18,true,true,3-4Y|5-6Y|7-8Y|9-10Y,light blue|dark blue
+Tracksuit Set,Cosy zip-up tracksuit set with jogger bottoms. Perfect for school runs and weekend adventures.,349,249,Kids,kids,20,true,true,3-4Y|5-6Y|7-8Y|9-10Y|11-12Y,grey|navy|black
+School Chino Shorts,Smart chino shorts suitable for school or casual wear. Easy-care fabric with an elastic waistband.,199,,Kids,kids,25,false,true,5-6Y|7-8Y|9-10Y|11-12Y,khaki|navy|black
+Printed Zip Hoodie,Bright and bold zip-up hoodie with fun all-over print. Fleece lining for cool evenings.,279,,Kids,kids,16,false,true,3-4Y|5-6Y|7-8Y|9-10Y|11-12Y,green|orange|purple
+Premium Leather Belt,Full-grain leather belt with a brushed-silver buckle. A wardrobe essential for men and women.,199,,Accessories,unisex,30,false,true,S/M|L/XL,black|brown|tan
+Structured Baseball Cap,Six-panel structured cap with embroidered MBS logo. Adjustable strap fits all sizes.,149,99,Accessories,unisex,40,true,true,One Size,black|navy|white|green
+Woven Bucket Hat,On-trend bucket hat in woven cotton with a wide brim. UV-protective for sunny SA days.,179,,Accessories,unisex,22,false,true,One Size,natural|black|sage
+Canvas Tote Bag,Heavy-duty canvas tote with zip closure and inner pocket. Spacious enough for everyday use.,249,,Accessories,unisex,28,true,true,One Size,natural|black|navy
+Ribbed Knit Beanie,Soft ribbed beanie in a warm acrylic blend. A must-have for Highveld winter mornings.,129,,Accessories,unisex,35,false,true,One Size,black|grey|green|camel
+Leather Crossbody Bag,Genuine leather crossbody bag with adjustable strap and zip closure. Compact yet spacious for everyday essentials.,599,449,Accessories,unisex,20,true,true,,tan|black
+Kids Denim Jacket,Durable denim jacket for kids with classic button front. Perfect for layering on cooler days.,349,,Kids,kids,15,false,true,3-4Y|5-6Y|7-8Y|9-10Y,blue|black
+High Waist Leggings,High-waist leggings in four-way stretch fabric. Comfortable for workouts and everyday wear.,299,199,Women,women,25,false,true,XS|S|M|L|XL,black|grey|navy
+Polarised Sunglasses,UV400 polarised sunglasses with a lightweight frame. Essential sun protection with a stylish edge.,249,,Accessories,unisex,18,false,true,,black|tortoise|clear
