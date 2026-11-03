@@ -2,11 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface HeroProps {
-  images: string[];
+  items: { image: string; slug: string; name: string }[];
 }
 
-export default function HeroSection({ images }: HeroProps) {
-  const [a, b] = images;
+export default function HeroSection({ items }: HeroProps) {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#E9DCC8] via-[#DCC8AB] to-[#CDB591]">
@@ -36,14 +35,17 @@ export default function HeroSection({ images }: HeroProps) {
 
         {/* Product pair, or quiet placeholder panels until images exist */}
         <div className="hidden lg:flex justify-end gap-5 items-end h-full pt-12">
-          {[a, b].map((src, i) => (
-            <div key={i}
-              className={`relative w-[17rem] overflow-hidden bg-[#F4EBDC] ${i === 0 ? "h-[27rem]" : "h-[31rem] mb-10"}`}>
-              {src ? (
-                <Image src={src} alt="" fill priority={i === 0} sizes="272px" className="object-cover" />
-              ) : null}
-            </div>
-          ))}
+          {[items[0], items[1]].map((it, i) => {
+            const cls = `relative w-[17rem] overflow-hidden rounded-3xl bg-[#F4EBDC] ${i === 0 ? "h-[27rem]" : "h-[31rem] mb-10"}`;
+            const img = it && (
+              <Image src={it.image} alt={it.name} fill priority={i === 0} sizes="272px" className="object-cover" />
+            );
+            return it ? (
+              <Link key={i} href={`/products/${it.slug}`} className={cls}>{img}</Link>
+            ) : (
+              <div key={i} className={cls} />
+            );
+          })}
         </div>
       </div>
     </section>

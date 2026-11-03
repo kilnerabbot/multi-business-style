@@ -22,6 +22,22 @@ async function getFeaturedProducts(): Promise<Product[]> {
   }
 }
 
+async function getHeroProducts(): Promise<Product[]> {
+  try {
+    const supabase = createClient();
+    const { data } = await supabase
+      .from("products")
+      .select("*")
+      .eq("active", true)
+      .eq("hero", true)
+      .order("created_at", { ascending: false })
+      .limit(2);
+    return (data as Product[]) ?? [];
+  } catch {
+    return [];
+  }
+}
+
 async function getCategoryTiles(): Promise<CategoryTile[]> {
   try {
     const supabase = createClient();
@@ -57,8 +73,9 @@ async function getProductsByGender(gender: string): Promise<Product[]> {
 }
 
 export default async function HomePage() {
-  const [featured, tiles, menProducts, womenProducts, kidsProducts] = await Promise.all([
+  const [featured, heroPicks, tiles, menProducts, womenProducts, kidsProducts] = await Promise.all([
     getFeaturedProducts(),
+    getHeroProducts(),
     getCategoryTiles(),
     getProductsByGender("men"),
     getProductsByGender("women"),
@@ -67,7 +84,12 @@ export default async function HomePage() {
 
   return (
     <>
-      <HeroSection images={featured.map((p) => p.images?.[0]).filter(Boolean).slice(0, 2)} />
+      <HeroSection
+        items={(heroPicks.length ? heroPicks : featured)
+          .filter((p) => p.images?.[0])
+          .slice(0, 2)
+          .map((p) => ({ image: p.images[0], slug: p.slug, name: p.name }))}
+      />
       <CategoryBanner categories={tiles} />
       {featured.length > 0 && (
         <FeaturedProducts

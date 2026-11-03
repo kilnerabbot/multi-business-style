@@ -24,6 +24,7 @@ export interface Product {
   colors: string[];
   stock: number;
   featured: boolean;
+  hero?: boolean;
   active: boolean;
   created_at: string;
 }

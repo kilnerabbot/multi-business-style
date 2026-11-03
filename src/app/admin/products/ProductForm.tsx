@@ -28,6 +28,7 @@ export default function ProductForm({ categories, product }: Props) {
     gender:      product?.gender      ?? "unisex",
     stock:       product?.stock?.toString() ?? "0",
     featured:    product?.featured    ?? false,
+    hero:        product?.hero        ?? false,
     active:      product?.active      ?? true,
     images:      product?.images      ?? ([] as string[]),
     sizes:       product?.sizes       ?? ([] as string[]),
@@ -181,6 +182,10 @@ export default function ProductForm({ categories, product }: Props) {
           <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-[#0D1B2A]">
             <input type="checkbox" checked={form.featured} onChange={(e) => setForm((p) => ({ ...p, featured: e.target.checked }))} className="accent-[#2ECC71]" />
             Featured product
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-[#0D1B2A]" title="Shown in the home page hero. The two newest ticked products appear.">
+            <input type="checkbox" checked={form.hero} onChange={(e) => setForm((p) => ({ ...p, hero: e.target.checked }))} className="accent-[#2ECC71]" />
+            Show in hero
           </label>
           <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-[#0D1B2A]">
             <input type="checkbox" checked={form.active} onChange={(e) => setForm((p) => ({ ...p, active: e.target.checked }))} className="accent-[#2ECC71]" />
