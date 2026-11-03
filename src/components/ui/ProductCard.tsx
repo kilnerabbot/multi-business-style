@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
+import { useState } from "react";
+import { ShoppingBag, Check } from "lucide-react";
 import WishlistButton from "@/components/ui/WishlistButton";
 import { motion } from "framer-motion";
 import { Product } from "@/types";
@@ -20,11 +21,14 @@ export default function ProductCard({ product, className }: ProductCardProps) {
     ? Math.round(((product.price - product.sale_price) / product.price) * 100)
     : null;
 
-  const handleQuickAdd = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const size = product.sizes?.[0] ?? "";
-    const color = product.colors?.[0] ?? "";
-    addItem(product, size, color);
+  // Products with sizes or colours need a choice first, so those go to the product page
+  const needsChoice = (product.sizes?.length ?? 0) > 0 || (product.colors?.length ?? 0) > 1;
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = () => {
+    addItem(product, product.sizes?.[0] ?? "", product.colors?.[0] ?? "");
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
   };
 
   return (
@@ -76,16 +80,6 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             productId={product.id}
             className="absolute top-3 right-3 bg-white/95 hover:bg-white text-neutral-700 p-2 rounded-full shadow-sm"
           />
-
-          {/* Quick Add */}
-          {product.stock > 0 && (
-            <button
-              onClick={handleQuickAdd}
-              className="absolute bottom-3 left-3 right-3 bg-black hover:bg-[#3a2c1f] text-white font-label text-[0.72rem] uppercase tracking-wider py-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200 flex items-center justify-center gap-1.5"
-            >
-              <ShoppingBag size={13} /> Add to bag
-            </button>
-          )}
         </div>
 
         {/* Info */}
@@ -121,6 +115,29 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           )}
         </div>
       </Link>
+
+      {/* Add to bag: always visible, so it works on touch screens too */}
+      {product.stock === 0 ? (
+        <p className="mt-3 text-center text-xs text-neutral-500 py-3 border border-[#E7E1D4]">Sold out</p>
+      ) : needsChoice ? (
+        <Link
+          href={`/products/${product.slug}`}
+          className="mt-3 flex items-center justify-center gap-2 border border-black text-black hover:bg-black hover:text-white font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors"
+        >
+          Choose options
+        </Link>
+      ) : (
+        <button
+          type="button"
+          onClick={handleAdd}
+          className={cn(
+            "mt-3 w-full flex items-center justify-center gap-2 font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors",
+            added ? "bg-[#3a2c1f] text-white" : "bg-black hover:bg-[#3a2c1f] text-white"
+          )}
+        >
+          {added ? <><Check size={13} /> Added</> : <><ShoppingBag size={13} /> Add to bag</>}
+        </button>
+      )}
     </motion.div>
   );
 }
