@@ -60,14 +60,14 @@ export default function ProductDetailClient({ product, related }: Props) {
             <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible">
               {product.images.map((img, i) => (
                 <button key={i} onClick={() => setSelectedImage(i)} aria-label={`Show image ${i + 1}`}
-                  className={cn("relative flex-shrink-0 w-16 h-20 overflow-hidden border transition-colors",
+                  className={cn("relative flex-shrink-0 w-16 h-20 overflow-hidden rounded-lg border transition-colors",
                     selectedImage === i ? "border-black" : "border-transparent opacity-70 hover:opacity-100")}>
                   <Image src={img} alt={`${product.name}, view ${i + 1}`} fill sizes="64px" className="object-cover" />
                 </button>
               ))}
             </div>
           )}
-          <div className="relative flex-1 min-w-0 w-full aspect-[4/5] overflow-hidden bg-[#F4F0E6]">
+          <div className="relative flex-1 min-w-0 w-full aspect-[4/5] overflow-hidden rounded-3xl bg-[#F4F0E6]">
             {product.images?.[selectedImage] ? (
               <Image src={product.images[selectedImage]} alt={product.name} fill priority
                 sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />

@@ -41,7 +41,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
     >
       <Link href={`/products/${product.slug}`} className="block">
         {/* Image */}
-        <div className="relative aspect-[3/4] overflow-hidden bg-[#F4F0E6]">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#F4F0E6]">
           {product.images?.[0] ? (
             <Image
               src={product.images[0]}
@@ -118,11 +118,11 @@ export default function ProductCard({ product, className }: ProductCardProps) {
 
       {/* Add to bag: always visible, so it works on touch screens too */}
       {product.stock === 0 ? (
-        <p className="mt-3 text-center text-xs text-neutral-500 py-3 border border-[#E7E1D4]">Sold out</p>
+        <p className="mt-3 text-center text-xs text-neutral-500 py-3 border border-[#E7E1D4] rounded-xl">Sold out</p>
       ) : needsChoice ? (
         <Link
           href={`/products/${product.slug}`}
-          className="mt-3 flex items-center justify-center gap-2 border border-black text-black hover:bg-black hover:text-white font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors"
+          className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-black text-black hover:bg-black hover:text-white font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors"
         >
           Choose options
         </Link>
@@ -131,7 +131,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           type="button"
           onClick={handleAdd}
           className={cn(
-            "mt-3 w-full flex items-center justify-center gap-2 font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors",
+            "mt-3 w-full rounded-xl flex items-center justify-center gap-2 font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors",
             added ? "bg-[#3a2c1f] text-white" : "bg-black hover:bg-[#3a2c1f] text-white"
           )}
         >
