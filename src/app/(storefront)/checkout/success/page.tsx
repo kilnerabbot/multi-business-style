@@ -5,6 +5,6 @@ interface Props {
 }
 
 export default async function CheckoutSuccessPage({ searchParams }: Props) {
-  const { order, phone, ref } = await searchParams;
-  return <SuccessClient orderId={order} phone={phone} ref={ref} />;
+  const { order, phone, ref: orderRef } = await searchParams;
+  return <SuccessClient orderId={order} phone={phone} orderRef={orderRef} />;
 }

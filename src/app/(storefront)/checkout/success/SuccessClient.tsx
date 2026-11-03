@@ -6,10 +6,10 @@ import { CheckCircle, ArrowRight, MessageCircle, RotateCcw } from "lucide-react"
 interface Props {
   orderId?: string;
   phone?: string;
-  ref?: string;
+  orderRef?: string;
 }
 
-export default function SuccessClient({ orderId, phone, ref: orderRef }: Props) {
+export default function SuccessClient({ orderId, phone, orderRef }: Props) {
   const displayRef = orderRef ?? (orderId ? orderId.slice(0, 8).toUpperCase() : null);
 
   const handleReopenWhatsApp = () => {
