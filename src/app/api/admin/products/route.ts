@@ -58,7 +58,6 @@ export async function PATCH(req: NextRequest) {
   const { id, ...rest } = body;
   const payload = {
     name: rest.name,
-    slug: slugify(rest.name),
     description: rest.description,
     price: parseFloat(rest.price),
     sale_price: rest.sale_price ? parseFloat(rest.sale_price) : null,
