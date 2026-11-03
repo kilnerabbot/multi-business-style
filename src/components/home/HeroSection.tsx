@@ -39,7 +39,7 @@ export default function HeroSection({ items }: HeroProps) {
         {/* Product pair, or quiet placeholder panels until images exist */}
         <div className="hidden lg:flex justify-end gap-5 items-end h-full pt-12">
           {[items[0], items[1]].map((it, i) => {
-            const cls = `relative w-[17rem] overflow-hidden rounded-3xl bg-[#F4EBDC] ${i === 0 ? "h-[27rem]" : "h-[31rem]"}`;
+            const cls = `relative block w-[17rem] overflow-hidden rounded-3xl bg-[#F4EBDC] ${i === 0 ? "h-[27rem]" : "h-[31rem]"}`;
             const img = it && (
               <Image src={it.image} alt={it.name} fill priority={i === 0} sizes="272px" className="object-cover" />
             );
