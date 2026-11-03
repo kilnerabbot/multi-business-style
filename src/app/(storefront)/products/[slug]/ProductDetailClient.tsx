@@ -53,9 +53,9 @@ export default function ProductDetailClient({ product, related }: Props) {
         )}
       </nav>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-start">
         {/* Gallery */}
-        <div className="flex flex-col-reverse sm:flex-row gap-3">
+        <div className="flex flex-col-reverse sm:flex-row sm:items-start gap-3 lg:sticky lg:top-28">
           {product.images?.length > 1 && (
             <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible">
               {product.images.map((img, i) => (
@@ -67,7 +67,7 @@ export default function ProductDetailClient({ product, related }: Props) {
               ))}
             </div>
           )}
-          <div className="relative flex-1 aspect-[4/5] overflow-hidden bg-[#F4F0E6]">
+          <div className="relative flex-1 min-w-0 w-full aspect-[4/5] overflow-hidden bg-[#F4F0E6]">
             {product.images?.[selectedImage] ? (
               <Image src={product.images[selectedImage]} alt={product.name} fill priority
                 sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
@@ -101,7 +101,7 @@ export default function ProductDetailClient({ product, related }: Props) {
           </p>
 
           {product.description && (
-            <p className="text-neutral-700 mt-6 leading-[1.75] max-w-prose">{product.description}</p>
+            <p className="text-neutral-700 mt-6 leading-[1.75] max-w-prose whitespace-pre-line">{product.description}</p>
           )}
 
           {hasColors && (
