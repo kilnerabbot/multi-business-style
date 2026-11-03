@@ -29,7 +29,7 @@ export default function ProductDetailClient({ product, related }: Props) {
 
   const handleAddToCart = () => {
     if (!selectedSize && product.sizes?.length > 0) return;
-    addItem(product, selectedSize || "One Size", selectedColor || "Default", quantity);
+    addItem(product, selectedSize, selectedColor, quantity);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };

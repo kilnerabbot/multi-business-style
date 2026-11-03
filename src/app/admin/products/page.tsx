@@ -2,9 +2,12 @@ import { createAdminClient as createClient } from "@/lib/supabase/server";
 import { Product } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
-import { Plus, Pencil } from "lucide-react";
+import { Plus } from "lucide-react";
 import Image from "next/image";
 import CSVUpload from "./CSVUpload";
+import ProductRowActions from "./ProductRowActions";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminProductsPage() {
   const supabase = createClient();
@@ -81,12 +84,7 @@ export default async function AdminProductsPage() {
                     )}
                   </td>
                   <td className="px-5 py-3">
-                    <Link
-                      href={`/admin/products/${product.id}`}
-                      className="inline-flex items-center gap-1 text-xs font-medium text-[#0D1B2A] hover:text-[#2ECC71] transition-colors"
-                    >
-                      <Pencil size={13} /> Edit
-                    </Link>
+                    <ProductRowActions id={product.id} name={product.name} active={product.active} />
                   </td>
                 </tr>
               ))}

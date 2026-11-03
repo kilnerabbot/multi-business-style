@@ -95,7 +95,7 @@ export default function CartDrawer() {
                           {item.product.name}
                         </p>
                         <p className="text-xs text-gray-400 mt-0.5">
-                          {item.size} · {item.color}
+                          {[item.size, item.color].filter((v) => v && v !== "Default").join(" · ")}
                         </p>
                         <p className="text-sm font-semibold text-[#0D1B2A] mt-1">
                           {formatPrice(item.product.sale_price ?? item.product.price)}

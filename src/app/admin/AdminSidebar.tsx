@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Package, ShoppingBag, Truck, Users, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Package, ShoppingBag, Truck, Users, Settings, LogOut, Tags } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV = [
   { label: "Dashboard",     href: "/admin",           icon: LayoutDashboard },
   { label: "Products",      href: "/admin/products",  icon: Package },
+  { label: "Categories",    href: "/admin/categories", icon: Tags },
   { label: "Orders",        href: "/admin/orders",    icon: ShoppingBag },
   { label: "Users",         href: "/admin/users",     icon: Users },
   { label: "Delivery Rates",href: "/admin/delivery",  icon: Truck },

@@ -50,7 +50,7 @@ export default function CartPage() {
                 >
                   {item.product.name}
                 </Link>
-                <p className="text-xs text-gray-400 mt-0.5">{item.size} · {item.color}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{[item.size, item.color].filter((v) => v && v !== "Default").join(" · ")}</p>
                 <p className="text-base font-bold text-[#0D1B2A] mt-1">
                   {formatPrice(item.product.sale_price ?? item.product.price)}
                 </p>

@@ -34,6 +34,10 @@ export default function ProductForm({ categories, product }: Props) {
     colors:      product?.colors      ?? ([] as string[]),
   });
 
+  // Products like fragrances have no sizes or colours
+  const [hasVariants, setHasVariants] = useState(
+    product ? (product.sizes?.length ?? 0) + (product.colors?.length ?? 0) > 0 : true
+  );
   const [colorInput,    setColorInput]    = useState("");
   const [uploading,     setUploading]     = useState(false);
   const [uploadError,   setUploadError]   = useState("");
@@ -97,6 +101,8 @@ export default function ProductForm({ categories, product }: Props) {
     setLoading(true);
     const body = {
       ...form,
+      sizes:  hasVariants ? form.sizes  : [],
+      colors: hasVariants ? form.colors : [],
       ...(isEdit ? { id: product!.id } : {}),
     };
 
@@ -171,6 +177,18 @@ export default function ProductForm({ categories, product }: Props) {
         </div>
       </div>
 
+      {/* ── Variants switch ── */}
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-[#0D1B2A]">
+          <input type="checkbox" checked={hasVariants} onChange={(e) => setHasVariants(e.target.checked)} className="accent-[#2ECC71]" />
+          This product has sizes or colours
+        </label>
+        <p className="text-xs text-gray-400 mt-1.5">
+          Untick for items like fragrances. Customers then add it to the cart without choosing a size or colour.
+        </p>
+      </div>
+
+      {hasVariants && (<>
       {/* ── Sizes ── */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
         <h2 className="font-bold text-[#0D1B2A] mb-4">Sizes</h2>
@@ -215,6 +233,7 @@ export default function ProductForm({ categories, product }: Props) {
           </button>
         </div>
       </div>
+      </>)}
 
       {/* ── Images ── */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
