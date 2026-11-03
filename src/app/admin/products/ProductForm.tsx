@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Product, Category } from "@/types";
-import { Plus, X, ImagePlus, Loader2 } from "lucide-react";
+import { Plus, X, ImagePlus, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 interface Props {
@@ -65,6 +65,18 @@ export default function ProductForm({ categories, product }: Props) {
   const removeColor = (c: string) =>
     setForm((p) => ({ ...p, colors: p.colors.filter((x) => x !== c) }));
 
+  const [dragFrom, setDragFrom] = useState<number | null>(null);
+  const [dragOver, setDragOver] = useState<number | null>(null);
+  const moveImage = (from: number, to: number) => {
+    if (from === to || to < 0) return;
+    setForm((p) => {
+      if (to >= p.images.length) return p;
+      const imgs = [...p.images];
+      const [m] = imgs.splice(from, 1);
+      imgs.splice(to, 0, m);
+      return { ...p, images: imgs };
+    });
+  };
   const removeImage = (i: number) =>
     setForm((p) => ({ ...p, images: p.images.filter((_, j) => j !== i) }));
 
@@ -238,14 +250,30 @@ export default function ProductForm({ categories, product }: Props) {
       {/* ── Images ── */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
         <h2 className="font-bold text-[#0D1B2A] mb-1">Product Images</h2>
-        <p className="text-xs text-gray-400 mb-4">Upload multiple images. First image is the main thumbnail.</p>
+        <p className="text-xs text-gray-400 mb-4">Upload multiple images. Drag to reorder (or use the arrows). First image is the main thumbnail.</p>
 
         {/* Uploaded image grid */}
         {form.images.length > 0 && (
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mb-4">
             {form.images.map((url, i) => (
-              <div key={i} className="relative group aspect-square rounded-xl overflow-hidden border border-gray-100 bg-gray-50">
-                <Image src={url} alt={`Product image ${i + 1}`} fill className="object-cover" />
+              <div
+                key={url}
+                draggable
+                onDragStart={() => setDragFrom(i)}
+                onDragOver={(e) => { e.preventDefault(); setDragOver(i); }}
+                onDrop={(e) => { e.preventDefault(); if (dragFrom !== null) moveImage(dragFrom, i); setDragFrom(null); setDragOver(null); }}
+                onDragEnd={() => { setDragFrom(null); setDragOver(null); }}
+                className={`relative group aspect-square rounded-xl overflow-hidden border bg-gray-50 cursor-grab active:cursor-grabbing transition-all ${
+                  dragOver === i && dragFrom !== i ? "border-[#2ECC71] ring-2 ring-[#2ECC71]" : "border-gray-100"
+                } ${dragFrom === i ? "opacity-40" : ""}`}
+              >
+                <Image src={url} alt={`Product image ${i + 1}`} fill draggable={false} className="object-cover pointer-events-none" />
+                <div className="absolute bottom-1.5 left-1.5 right-1.5 flex justify-between opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity">
+                  <button type="button" disabled={i === 0} onClick={() => moveImage(i, i - 1)} aria-label="Move left"
+                    className="w-6 h-6 bg-black/70 text-white rounded-full flex items-center justify-center disabled:opacity-30"><ChevronLeft size={13} /></button>
+                  <button type="button" disabled={i === form.images.length - 1} onClick={() => moveImage(i, i + 1)} aria-label="Move right"
+                    className="w-6 h-6 bg-black/70 text-white rounded-full flex items-center justify-center disabled:opacity-30"><ChevronRight size={13} /></button>
+                </div>
                 {i === 0 && (
                   <span className="absolute top-1.5 left-1.5 bg-[#2ECC71] text-[#0D1B2A] text-[9px] font-bold px-1.5 py-0.5 rounded-full">
                     MAIN
