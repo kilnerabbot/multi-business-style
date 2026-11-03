@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProductCard from "@/components/ui/ProductCard";
 import { Product } from "@/types";
+import Reveal from "@/components/motion/Reveal";
 
 interface FeaturedProductsProps {
   products: Product[];
@@ -14,6 +15,7 @@ export default function FeaturedProducts({ products, title, subtitle, viewAllHre
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
+      <Reveal>
       <div className="flex items-end justify-between mb-9">
         <div>
           {subtitle && <p className="font-label text-[0.74rem] text-neutral-500 mb-2">{subtitle}</p>}
@@ -23,9 +25,10 @@ export default function FeaturedProducts({ products, title, subtitle, viewAllHre
           View all
         </Link>
       </div>
+      </Reveal>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-10">
-        {products.slice(0, 8).map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products.slice(0, 8).map((product, i) => (
+          <ProductCard key={product.id} product={product} delay={(i % 4) * 0.07} />
         ))}
       </div>
     </section>

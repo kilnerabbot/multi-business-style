@@ -13,9 +13,10 @@ import { useCartStore } from "@/store/cart";
 interface ProductCardProps {
   product: Product;
   className?: string;
+  delay?: number;
 }
 
-export default function ProductCard({ product, className }: ProductCardProps) {
+export default function ProductCard({ product, className, delay = 0 }: ProductCardProps) {
   const { addItem } = useCartStore();
   const discount = product.sale_price
     ? Math.round(((product.price - product.sale_price) / product.price) * 100)
@@ -36,7 +37,8 @@ export default function ProductCard({ product, className }: ProductCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.4 }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] }}
       className={cn("group relative", className)}
     >
       <Link href={`/products/${product.slug}`} className="block">
@@ -127,8 +129,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           Choose options
         </Link>
       ) : (
-        <button
+        <motion.button
           type="button"
+          whileTap={{ scale: 0.96 }}
           onClick={handleAdd}
           className={cn(
             "mt-3 w-full rounded-xl flex items-center justify-center gap-2 font-label text-[0.72rem] uppercase tracking-wider py-3 transition-colors",
@@ -136,7 +139,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           )}
         >
           {added ? <><Check size={13} /> Added</> : <><ShoppingBag size={13} /> Add to bag</>}
-        </button>
+        </motion.button>
       )}
     </motion.div>
   );

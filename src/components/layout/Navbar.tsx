@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { ShoppingBag, User, Menu, X, Search, Heart } from "lucide-react";
 import { useWishlistStore } from "@/store/wishlist";
 import { useCartStore } from "@/store/cart";
@@ -92,9 +93,15 @@ export default function Navbar({ categories }: { categories: NavCategory[] }) {
             <button onClick={toggleCart} aria-label="Open bag" className="relative p-1">
               <ShoppingBag size={21} />
               {mounted && count > 0 && (
-                <span className="absolute -top-1.5 -right-2 bg-black text-white text-[0.62rem] font-semibold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">
+                <motion.span
+                  key={count}
+                  initial={{ scale: 0.4 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 14 }}
+                  className="absolute -top-1.5 -right-2 bg-black text-white text-[0.62rem] font-semibold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center"
+                >
                   {count > 99 ? "99+" : count}
-                </span>
+                </motion.span>
               )}
             </button>
             <Link href="/account" aria-label="Account" className="flex items-center gap-1.5 text-[0.95rem]">

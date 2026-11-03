@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
+import { motion } from "framer-motion";
 import { createClient } from "@/lib/supabase/client";
 import { useWishlistStore } from "@/store/wishlist";
 import { cn } from "@/lib/utils";
@@ -44,7 +45,16 @@ export default function WishlistButton({
       aria-label={saved ? "Remove from wishlist" : "Save to wishlist"}
       className={cn("transition-colors", className)}
     >
-      <Heart size={size} className={saved ? "fill-black text-black" : ""} />
+      <motion.span
+        key={String(saved)}
+        initial={{ scale: saved ? 0.5 : 1 }}
+        animate={{ scale: 1 }}
+        whileTap={{ scale: 0.85 }}
+        transition={{ type: "spring", stiffness: 600, damping: 12 }}
+        className="flex"
+      >
+        <Heart size={size} className={saved ? "fill-black text-black" : ""} />
+      </motion.span>
     </button>
   );
 }
