@@ -67,7 +67,7 @@ const SHOES = [
 
 function Table({ headers, rows }: { headers: string[]; rows: (string | number)[][] }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-100">
+    <div className="overflow-x-auto rounded-sm border border-gray-100">
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-[#FAF8F3] border-b border-gray-100">
@@ -111,7 +111,7 @@ export default function SizeGuidePage() {
       </motion.div>
 
       {/* How to measure */}
-      <motion.div {...fadeUp(0.1)} className="bg-[#F4F0E6] rounded-2xl p-6 mb-10">
+      <motion.div {...fadeUp(0.1)} className="bg-[#F4F0E6] rounded-sm p-6 mb-10">
         <h2 className="font-display font-medium text-[#111111] mb-4">How to measure yourself</h2>
         <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-600">
           {[
@@ -132,12 +132,12 @@ export default function SizeGuidePage() {
 
       {/* Tabs */}
       <motion.div {...fadeUp(0.15)}>
-        <div className="flex gap-1 bg-[#F4F0E6] rounded-xl p-1 mb-8 overflow-x-auto">
+        <div className="flex gap-1 bg-[#F4F0E6] rounded-sm p-1 mb-8 overflow-x-auto">
           {TABS.map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`flex-shrink-0 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`flex-shrink-0 px-4 py-2 rounded-sm text-sm font-semibold transition-all ${
                 tab === t ? "bg-white text-[#111111] shadow-sm" : "text-gray-400 hover:text-[#111111]"
               }`}
             >
@@ -207,12 +207,12 @@ export default function SizeGuidePage() {
       </motion.div>
 
       {/* Tip */}
-      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#111111] rounded-2xl p-7 text-center">
+      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#111111] rounded-sm p-7 text-center">
         <p className="text-white font-semibold text-lg">Still not sure about your size?</p>
         <p className="text-white/50 text-sm mt-2 mb-5">Contact us and we'll help you find the perfect fit before you order.</p>
         <a
           href="/contact"
-          className="inline-flex items-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+          className="inline-flex items-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] text-white font-bold px-6 py-3 rounded-sm transition-colors"
         >
           Get sizing help
         </a>

@@ -39,7 +39,7 @@ export default function SuccessClient({ orderId, phone, orderRef }: Props) {
       )}
 
       {/* Next steps card */}
-      <div className="bg-[#F4F0E6] rounded-2xl p-6 mb-6 text-left space-y-4">
+      <div className="bg-[#F4F0E6] rounded-sm p-6 mb-6 text-left space-y-4">
         <p className="text-sm font-bold text-[#111111]">What happens next?</p>
         <ol className="space-y-3">
           {[
@@ -61,7 +61,7 @@ export default function SuccessClient({ orderId, phone, orderRef }: Props) {
       {phone && (
         <button
           onClick={handleReopenWhatsApp}
-          className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white font-bold py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#25D366]/25 mb-4"
+          className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white font-bold py-3.5 rounded-sm transition-all hover:shadow-lg hover:shadow-[#25D366]/25 mb-4"
         >
           <RotateCcw size={16} />
           Re-open WhatsApp
@@ -72,13 +72,13 @@ export default function SuccessClient({ orderId, phone, orderRef }: Props) {
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link
           href="/account/orders"
-          className="inline-flex items-center justify-center gap-2 bg-[#111111] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#1a2f45] transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-[#111111] text-white font-semibold px-6 py-3 rounded-sm hover:bg-[#1a2f45] transition-colors"
         >
           Track your order
         </Link>
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center gap-2 border border-gray-200 text-[#111111] font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors"
+          className="inline-flex items-center justify-center gap-2 border border-gray-200 text-[#111111] font-semibold px-6 py-3 rounded-sm hover:bg-gray-50 transition-colors"
         >
           Continue shopping <ArrowRight size={15} />
         </Link>

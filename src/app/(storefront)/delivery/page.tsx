@@ -48,8 +48,8 @@ export default function DeliveryPage() {
           { icon: CheckCircle, label: "Free delivery", desc: "On qualifying orders", color: "bg-green-50 text-green-600" },
           { icon: Clock, label: "1–7 business days", desc: "Depending on your province", color: "bg-yellow-50 text-yellow-600" },
         ].map(({ icon: Icon, label, desc, color }) => (
-          <div key={label} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}>
+          <div key={label} className="bg-white border border-gray-100 rounded-sm p-5 shadow-sm">
+            <div className={`w-10 h-10 rounded-sm flex items-center justify-center mb-3 ${color}`}>
               <Icon size={18} />
             </div>
             <p className="font-bold text-[#111111]">{label}</p>
@@ -59,7 +59,7 @@ export default function DeliveryPage() {
       </motion.div>
 
       {/* Rates table */}
-      <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden mb-8">
+      <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-sm shadow-sm overflow-hidden mb-8">
         <div className="px-6 py-5 border-b border-gray-100 bg-[#FAF8F3]">
           <h2 className="text-lg font-display font-medium text-[#111111]">Delivery Rates by Province</h2>
           <p className="text-sm text-gray-400 mt-0.5">All prices include VAT</p>
@@ -134,7 +134,7 @@ export default function DeliveryPage() {
             a: "We deliver to all physical addresses. Delivery to farm or rural areas may take 1–2 extra days and may require a surcharge — we'll contact you if this applies.",
           },
         ].map(({ q, a }) => (
-          <div key={q} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div key={q} className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <p className="font-semibold text-[#111111] mb-2">{q}</p>
             <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
           </div>
@@ -142,14 +142,14 @@ export default function DeliveryPage() {
       </motion.div>
 
       {/* CTA */}
-      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#111111] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <motion.div {...fadeUp(0.25)} className="mt-10 bg-[#111111] rounded-sm p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
         <div>
           <p className="text-white font-bold text-lg">Still have questions?</p>
           <p className="text-white/50 text-sm mt-1">Our team is happy to help with your delivery query.</p>
         </div>
         <a
           href="/contact"
-          className="flex-shrink-0 bg-[#111111] hover:bg-[#3a2c1f] text-white font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
+          className="flex-shrink-0 bg-[#111111] hover:bg-[#3a2c1f] text-white font-bold px-6 py-3 rounded-sm transition-colors flex items-center gap-2"
         >
           <Package size={16} /> Contact Us
         </a>

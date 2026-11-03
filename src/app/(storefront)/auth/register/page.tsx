@@ -62,13 +62,13 @@ export default function RegisterPage() {
           <p className="text-gray-400 mt-2">Join Multi Business Style today</p>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm space-y-4">
+        <div className="bg-white border border-gray-100 rounded-sm p-8 shadow-sm space-y-4">
 
           {/* Google button */}
           <button
             onClick={handleGoogle}
             disabled={googleLoading}
-            className="w-full flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-xl py-2.5 text-sm font-semibold text-[#111111] transition-all disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-sm py-2.5 text-sm font-semibold text-[#111111] transition-all disabled:opacity-60"
           >
             {googleLoading ? (
               <span className="w-4 h-4 border-2 border-gray-300 border-t-[#4285F4] rounded-full animate-spin" />
@@ -115,10 +115,10 @@ export default function RegisterPage() {
               </div>
             ))}
 
-            {error && <p className="text-sm text-red-500 bg-red-50 rounded-lg px-3 py-2">{error}</p>}
+            {error && <p className="text-sm text-red-500 bg-red-50 rounded-sm px-3 py-2">{error}</p>}
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-xl transition-colors">
+              className="w-full bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-sm transition-colors">
               {loading ? "Creating account…" : "Create Account"}
             </button>
           </form>
@@ -136,4 +136,4 @@ export default function RegisterPage() {
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
+const inputCls = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";

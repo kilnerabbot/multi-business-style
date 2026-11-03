@@ -106,14 +106,14 @@ export default function ShopClient({ initialProducts, categories, activeGender }
           <div className="lg:hidden flex items-center justify-between mb-4">
             <button
               onClick={() => setFilterOpen(true)}
-              className="flex items-center gap-2 text-sm font-medium text-[#111111] border border-gray-200 px-4 py-2 rounded-lg"
+              className="flex items-center gap-2 text-sm font-medium text-[#111111] border border-gray-200 px-4 py-2 rounded-sm"
             >
               <SlidersHorizontal size={15} /> Filters
             </button>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="text-sm border border-gray-200 rounded-lg px-3 py-2 text-[#111111] focus:outline-none focus:border-[#7A5230]"
+              className="text-sm border border-gray-200 rounded-sm px-3 py-2 text-[#111111] focus:outline-none focus:border-[#7A5230]"
             >
               {SORT_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>

@@ -24,7 +24,7 @@ export default function PromoStrip() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="flex items-center gap-3"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#2ECC71]/15 flex items-center justify-center">
+              <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-[#2ECC71]/15 flex items-center justify-center">
                 <perk.icon size={18} className="text-[#2ECC71]" />
               </div>
               <div>

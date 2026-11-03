@@ -76,7 +76,7 @@ export default function CartDrawer() {
                   {items.map((item, idx) => (
                     <li key={idx} className="flex gap-3">
                       {/* Image */}
-                      <div className="relative w-20 h-24 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                      <div className="relative w-20 h-24 rounded-sm overflow-hidden bg-gray-100 flex-shrink-0">
                         {item.product.images?.[0] ? (
                           <Image
                             src={item.product.images[0]}
@@ -103,7 +103,7 @@ export default function CartDrawer() {
 
                         <div className="flex items-center justify-between mt-2">
                           {/* Qty */}
-                          <div className="flex items-center gap-2 border border-gray-200 rounded-lg">
+                          <div className="flex items-center gap-2 border border-gray-200 rounded-sm">
                             <button
                               onClick={() => updateQuantity(item.product.id, item.size, item.color, item.quantity - 1)}
                               className="p-1.5 text-gray-400 hover:text-[#111111] transition-colors"
@@ -148,7 +148,7 @@ export default function CartDrawer() {
                 <Link
                   href="/checkout"
                   onClick={closeCart}
-                  className="block w-full bg-[#111111] hover:bg-[#3a2c1f] text-white font-semibold text-sm text-center py-3.5 rounded-xl transition-colors"
+                  className="block w-full bg-[#111111] hover:bg-[#3a2c1f] text-white font-semibold text-sm text-center py-3.5 rounded-sm transition-colors"
                 >
                   Checkout · {formatPrice(total)}
                 </Link>

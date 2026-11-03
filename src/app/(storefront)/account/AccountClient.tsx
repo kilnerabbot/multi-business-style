@@ -27,7 +27,7 @@ function initials(name?: string | null, email?: string) {
   return (email?.[0] ?? "?").toUpperCase();
 }
 
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
+const inputCls = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
 const labelCls = "block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5";
 
 const SA_PROVINCES = [
@@ -132,7 +132,7 @@ export default function AccountClient({ profile, orders }: Props) {
           {/* Top row: avatar + name + sign out */}
           <div className="flex items-start justify-between gap-4 mb-8">
             <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#7A5230]/20">
+              <div className="w-16 h-16 rounded-sm bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#7A5230]/20">
                 <span className="text-[#111111] text-xl font-black">
                   {initials(profile?.full_name, profile?.email)}
                 </span>
@@ -161,7 +161,7 @@ export default function AccountClient({ profile, orders }: Props) {
               { icon: TrendingUp,  label: "Total Spent",   value: formatPrice(totalSpent) },
               { icon: Package,     label: "Active Orders", value: activeCount.toString() },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="bg-white/5 rounded-2xl px-4 py-3 border border-white/[0.08]">
+              <div key={label} className="bg-white/5 rounded-sm px-4 py-3 border border-white/[0.08]">
                 <div className="flex items-center gap-2 mb-1">
                   <Icon size={13} className="text-[#7A5230]" />
                   <p className="text-white/40 text-xs font-medium">{label}</p>
@@ -200,7 +200,7 @@ export default function AccountClient({ profile, orders }: Props) {
           <div>
             {orders.length === 0 ? (
               <div className="text-center py-20">
-                <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-sm">
+                <div className="w-20 h-20 bg-white rounded-sm flex items-center justify-center mx-auto mb-5 shadow-sm">
                   <ShoppingBag size={32} className="text-gray-200" />
                 </div>
                 <h2 className="text-xl font-display font-medium text-[#111111] mb-2">No orders yet</h2>
@@ -209,7 +209,7 @@ export default function AccountClient({ profile, orders }: Props) {
                 </p>
                 <Link
                   href="/shop"
-                  className="inline-flex items-center gap-2 bg-[#111111] text-white font-bold px-7 py-3 rounded-xl hover:bg-[#3a2c1f] transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#111111] text-white font-bold px-7 py-3 rounded-sm hover:bg-[#3a2c1f] transition-colors"
                 >
                   Start Shopping
                 </Link>
@@ -225,7 +225,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                   return (
                     <div key={order.id}
-                      className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
+                      className={`bg-white rounded-sm border transition-all duration-200 overflow-hidden ${
                         isOpen ? "border-[#7A5230]/30 shadow-md" : "border-gray-100 shadow-sm"
                       }`}
                     >
@@ -238,16 +238,16 @@ export default function AccountClient({ profile, orders }: Props) {
                           {/* Thumbnail stack */}
                           <div className="flex -space-x-2 flex-shrink-0">
                             {thumbs.length > 0 ? thumbs.map((src, i) => (
-                              <div key={i} className="w-10 h-10 rounded-xl border-2 border-white overflow-hidden bg-gray-100 flex-shrink-0">
+                              <div key={i} className="w-10 h-10 rounded-sm border-2 border-white overflow-hidden bg-gray-100 flex-shrink-0">
                                 <Image src={src} alt="" width={40} height={40} className="object-cover w-full h-full" />
                               </div>
                             )) : (
-                              <div className="w-10 h-10 rounded-xl bg-[#F4F0E6] flex items-center justify-center">
+                              <div className="w-10 h-10 rounded-sm bg-[#F4F0E6] flex items-center justify-center">
                                 <Package size={18} className="text-gray-300" />
                               </div>
                             )}
                             {items.length > 3 && (
-                              <div className="w-10 h-10 rounded-xl border-2 border-white bg-[#F4F0E6] flex items-center justify-center flex-shrink-0">
+                              <div className="w-10 h-10 rounded-sm border-2 border-white bg-[#F4F0E6] flex items-center justify-center flex-shrink-0">
                                 <span className="text-xs font-bold text-gray-400">+{items.length - 3}</span>
                               </div>
                             )}
@@ -293,8 +293,8 @@ export default function AccountClient({ profile, orders }: Props) {
                               {items.map((item, i) => {
                                 const price = item.product?.sale_price ?? item.product?.price ?? 0;
                                 return (
-                                  <div key={i} className="flex items-center gap-3 bg-white rounded-xl p-3 border border-gray-100">
-                                    <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                                  <div key={i} className="flex items-center gap-3 bg-white rounded-sm p-3 border border-gray-100">
+                                    <div className="w-12 h-12 rounded-sm overflow-hidden bg-gray-100 flex-shrink-0">
                                       {item.product?.images?.[0] ? (
                                         <Image src={item.product.images[0]} alt={item.product.name} width={48} height={48} className="object-cover w-full h-full" />
                                       ) : (
@@ -314,7 +314,7 @@ export default function AccountClient({ profile, orders }: Props) {
                               })}
 
                               {/* Totals */}
-                              <div className="bg-white rounded-xl border border-gray-100 p-3 space-y-1.5 text-sm">
+                              <div className="bg-white rounded-sm border border-gray-100 p-3 space-y-1.5 text-sm">
                                 <div className="flex justify-between text-gray-400">
                                   <span>Subtotal</span><span className="font-medium text-[#111111]">{formatPrice(order.subtotal)}</span>
                                 </div>
@@ -330,7 +330,7 @@ export default function AccountClient({ profile, orders }: Props) {
                             {/* Right column */}
                             <div className="space-y-3">
                               {order.shipping_address && (
-                                <div className="bg-white rounded-xl border border-gray-100 p-4">
+                                <div className="bg-white rounded-sm border border-gray-100 p-4">
                                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wide flex items-center gap-1.5 mb-3">
                                     <MapPin size={12} /> Shipping To
                                   </p>
@@ -345,7 +345,7 @@ export default function AccountClient({ profile, orders }: Props) {
                                 </div>
                               )}
 
-                              <div className="bg-white rounded-xl border border-gray-100 p-4 space-y-2 text-xs">
+                              <div className="bg-white rounded-sm border border-gray-100 p-4 space-y-2 text-xs">
                                 <p className="font-bold text-gray-400 uppercase tracking-wide flex items-center gap-1.5 mb-2">
                                   <Calendar size={12} /> Order Info
                                 </p>
@@ -383,12 +383,12 @@ export default function AccountClient({ profile, orders }: Props) {
           <div className="max-w-2xl space-y-4">
 
             {/* ── Personal info card ─────────────────────────────────── */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-sm border border-gray-100 shadow-sm overflow-hidden">
 
               {/* Card header */}
               <div className="bg-gradient-to-r from-[#111111] to-[#1a2f45] px-6 py-5 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center shadow-lg shadow-[#7A5230]/20">
+                  <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-[#7A5230] to-[#3a2c1f] flex items-center justify-center shadow-lg shadow-[#7A5230]/20">
                     <span className="text-[#111111] text-base font-black">
                       {initials(profile?.full_name, profile?.email)}
                     </span>
@@ -417,7 +417,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                 {/* Success banner */}
                 {saveMsg === "success" && (
-                  <div className="flex items-center gap-2 bg-green-50 border border-green-100 text-green-700 text-sm rounded-xl px-4 py-2.5 mb-5">
+                  <div className="flex items-center gap-2 bg-green-50 border border-green-100 text-green-700 text-sm rounded-sm px-4 py-2.5 mb-5">
                     <Check size={15} /> Profile updated successfully.
                   </div>
                 )}
@@ -529,7 +529,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                     {/* Error */}
                     {saveMsg === "error" && (
-                      <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-2.5">
+                      <p className="text-sm text-red-500 bg-red-50 rounded-sm px-4 py-2.5">
                         {saveError || "Something went wrong. Please try again."}
                       </p>
                     )}
@@ -539,7 +539,7 @@ export default function AccountClient({ profile, orders }: Props) {
                       <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="flex-1 flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-100 disabled:text-gray-400 text-white font-bold py-2.5 rounded-xl transition-colors text-sm"
+                        className="flex-1 flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-100 disabled:text-gray-400 text-white font-bold py-2.5 rounded-sm transition-colors text-sm"
                       >
                         {saving ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />}
                         {saving ? "Saving…" : "Save Changes"}
@@ -547,7 +547,7 @@ export default function AccountClient({ profile, orders }: Props) {
                       <button
                         onClick={cancelEdit}
                         disabled={saving}
-                        className="flex items-center gap-1.5 border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-[#111111] font-semibold py-2.5 px-5 rounded-xl transition-all text-sm"
+                        className="flex items-center gap-1.5 border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-[#111111] font-semibold py-2.5 px-5 rounded-sm transition-all text-sm"
                       >
                         <X size={14} /> Cancel
                       </button>
@@ -568,7 +568,7 @@ export default function AccountClient({ profile, orders }: Props) {
                             : "—" },
                       ].map(({ icon: Icon, label, value }) => (
                         <div key={label} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-lg flex items-center justify-center flex-shrink-0">
+                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-sm flex items-center justify-center flex-shrink-0">
                             <Icon size={14} className="text-gray-400" />
                           </div>
                           <div className="flex-1">
@@ -586,7 +586,7 @@ export default function AccountClient({ profile, orders }: Props) {
                           <Home size={12} /> Default Shipping Address
                         </p>
                         <div className="flex items-start gap-4 py-2">
-                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <div className="w-8 h-8 bg-[#F4F0E6] rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
                             <MapPin size={14} className="text-gray-400" />
                           </div>
                           <p className="text-sm text-[#111111] leading-relaxed">
@@ -605,7 +605,7 @@ export default function AccountClient({ profile, orders }: Props) {
 
                     <button
                       onClick={() => { setEditing(true); setSaveMsg(""); setSaveError(""); }}
-                      className="w-full mt-1 flex items-center justify-center gap-2 border border-dashed border-gray-200 hover:border-[#7A5230] text-gray-400 hover:text-[#7A5230] font-semibold py-2.5 rounded-xl transition-all text-sm"
+                      className="w-full mt-1 flex items-center justify-center gap-2 border border-dashed border-gray-200 hover:border-[#7A5230] text-gray-400 hover:text-[#7A5230] font-semibold py-2.5 rounded-sm transition-all text-sm"
                     >
                       <Pencil size={14} /> {hasAddress ? "Edit Profile & Address" : "Edit Profile"}
                     </button>
@@ -615,14 +615,14 @@ export default function AccountClient({ profile, orders }: Props) {
             </div>
 
             {/* ── Sign out card ───────────────────────────────────────── */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex items-center justify-between">
+            <div className="bg-white rounded-sm border border-gray-100 shadow-sm p-5 flex items-center justify-between">
               <div>
                 <p className="text-sm font-semibold text-[#111111]">Sign out of your account</p>
                 <p className="text-xs text-gray-400 mt-0.5">You can sign back in anytime.</p>
               </div>
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-2 text-sm font-semibold text-red-400 hover:text-red-600 border border-red-100 hover:border-red-300 px-4 py-2 rounded-xl transition-all"
+                className="flex items-center gap-2 text-sm font-semibold text-red-400 hover:text-red-600 border border-red-100 hover:border-red-300 px-4 py-2 rounded-sm transition-all"
               >
                 <LogOut size={14} /> Sign Out
               </button>

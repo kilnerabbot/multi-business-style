@@ -222,7 +222,7 @@ export default function CheckoutPage() {
 
         {/* ── Left — Delivery form ─────────────────────────────────── */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <h2 className="text-lg font-display font-medium text-[#111111] mb-5">Delivery Information</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -264,7 +264,7 @@ export default function CheckoutPage() {
             </div>
 
             {address.province && (
-              <div className="mt-4 flex items-start gap-3 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-xl p-3.5">
+              <div className="mt-4 flex items-start gap-3 bg-[#7A5230]/10 border border-[#7A5230]/30 rounded-sm p-3.5">
                 <Truck size={16} className="text-[#7A5230] mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-[#111111]">
                   {isJhb
@@ -280,7 +280,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* How it works */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <h2 className="text-base font-display font-medium text-[#111111] mb-4 flex items-center gap-2">
               <MessageCircle size={16} className="text-[#25D366]" />
               How ordering works
@@ -305,7 +305,7 @@ export default function CheckoutPage() {
 
         {/* ── Right — Order summary ─────────────────────────────────── */}
         <div className="lg:col-span-1">
-          <div className="bg-[#F4F0E6] rounded-2xl p-6 sticky top-24 space-y-4">
+          <div className="bg-[#F4F0E6] rounded-sm p-6 sticky top-24 space-y-4">
             <h2 className="text-lg font-display font-medium text-[#111111]">Order Summary</h2>
 
             <ul className="space-y-3">
@@ -340,14 +340,14 @@ export default function CheckoutPage() {
             </div>
 
             {error && (
-              <p className="text-sm text-red-500 bg-red-50 rounded-lg px-3 py-2">{error}</p>
+              <p className="text-sm text-red-500 bg-red-50 rounded-sm px-3 py-2">{error}</p>
             )}
 
             <button
               type="submit"
               disabled={loading}
               className={cn(
-                "w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-all",
+                "w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-sm transition-all",
                 loading
                   ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                   : "bg-[#25D366] hover:bg-[#20b858] text-white hover:shadow-lg hover:shadow-[#25D366]/25"
@@ -373,7 +373,7 @@ export default function CheckoutPage() {
   );
 }
 
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
+const inputCls = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
 
 function Field({ label, children, required, className }: {
   label: string; children: React.ReactNode; required?: boolean; className?: string;

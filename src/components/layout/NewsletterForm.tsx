@@ -22,11 +22,11 @@ export default function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your@email.com"
-        className="flex-1 bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#7A5230] transition-colors"
+        className="flex-1 bg-white/10 border border-white/20 rounded-sm px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#7A5230] transition-colors"
       />
       <button
         type="submit"
-        className="bg-[#111111] hover:bg-[#3a2c1f] text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
+        className="bg-[#111111] hover:bg-[#3a2c1f] text-white font-semibold text-sm px-4 py-2 rounded-sm transition-colors whitespace-nowrap"
       >
         Join
       </button>

@@ -34,8 +34,8 @@ export default function ReturnsPage() {
           { icon: RotateCcw, label: "Free Exchanges", desc: "on same-value items", color: "bg-green-50 text-green-600" },
           { icon: Package, label: "Easy Process", desc: "drop-off or collection", color: "bg-purple-50 text-purple-600" },
         ].map(({ icon: Icon, label, desc, color }) => (
-          <div key={label} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}>
+          <div key={label} className="bg-white border border-gray-100 rounded-sm p-5 shadow-sm">
+            <div className={`w-10 h-10 rounded-sm flex items-center justify-center mb-3 ${color}`}>
               <Icon size={18} />
             </div>
             <p className="font-bold text-[#111111]">{label}</p>
@@ -46,7 +46,7 @@ export default function ReturnsPage() {
 
       <div className="space-y-8">
         {/* Eligibility */}
-        <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
+        <motion.div {...fadeUp(0.15)} className="bg-white border border-gray-100 rounded-sm p-7 shadow-sm">
           <h2 className="text-xl font-display font-medium text-[#111111] mb-5">What can be returned?</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
@@ -89,7 +89,7 @@ export default function ReturnsPage() {
         </motion.div>
 
         {/* How to return */}
-        <motion.div {...fadeUp(0.2)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
+        <motion.div {...fadeUp(0.2)} className="bg-white border border-gray-100 rounded-sm p-7 shadow-sm">
           <h2 className="text-xl font-display font-medium text-[#111111] mb-6">How to return or exchange</h2>
           <div className="space-y-5">
             {[
@@ -113,7 +113,7 @@ export default function ReturnsPage() {
         </motion.div>
 
         {/* Refunds */}
-        <motion.div {...fadeUp(0.25)} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
+        <motion.div {...fadeUp(0.25)} className="bg-white border border-gray-100 rounded-sm p-7 shadow-sm">
           <h2 className="text-xl font-display font-medium text-[#111111] mb-4">Refunds</h2>
           <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
             <p>Approved refunds are issued to your original payment method via PayFast within <strong className="text-[#111111]">5–7 business days</strong> of us receiving the returned item.</p>
@@ -123,14 +123,14 @@ export default function ReturnsPage() {
         </motion.div>
 
         {/* Faulty items */}
-        <motion.div {...fadeUp(0.3)} className="bg-[#FFF7ED] border border-orange-100 rounded-2xl p-7">
+        <motion.div {...fadeUp(0.3)} className="bg-[#FFF7ED] border border-orange-100 rounded-sm p-7">
           <h2 className="text-xl font-display font-medium text-[#111111] mb-3">Received a faulty or incorrect item?</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
             If your item arrived damaged, defective, or different from what you ordered, we'll cover all return costs and either replace the item or issue a full refund — your choice.
           </p>
           <a
             href="mailto:returns@multibusinessstyle.co.za"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#111111] hover:bg-[#3a2c1f] px-5 py-2.5 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#111111] hover:bg-[#3a2c1f] px-5 py-2.5 rounded-sm transition-colors"
           >
             <Mail size={15} /> Email us immediately
           </a>

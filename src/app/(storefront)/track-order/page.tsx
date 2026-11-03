@@ -82,7 +82,7 @@ export default function TrackOrderPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         onSubmit={handleSearch}
-        className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm mb-8 space-y-4"
+        className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm mb-8 space-y-4"
       >
         <div>
           <label className={labelCls}>Order Number</label>
@@ -101,7 +101,7 @@ export default function TrackOrderPage() {
         </div>
 
         {error && (
-          <div className="flex items-start gap-2 bg-red-50 border border-red-100 rounded-xl px-4 py-3 text-sm text-red-600">
+          <div className="flex items-start gap-2 bg-red-50 border border-red-100 rounded-sm px-4 py-3 text-sm text-red-600">
             <XCircle size={15} className="mt-0.5 flex-shrink-0" />
             {error}
           </div>
@@ -110,7 +110,7 @@ export default function TrackOrderPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3.5 rounded-xl transition-all"
+          className="w-full flex items-center justify-center gap-2 bg-[#111111] hover:bg-[#3a2c1f] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3.5 rounded-sm transition-all"
         >
           <Search size={16} />
           {loading ? "Searching…" : "Track Order"}
@@ -126,7 +126,7 @@ export default function TrackOrderPage() {
           className="space-y-5"
         >
           {/* Order header */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-wide">Order reference</p>
@@ -176,7 +176,7 @@ export default function TrackOrderPage() {
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-3 bg-red-50 rounded-xl px-4 py-3 text-sm text-red-600">
+              <div className="flex items-center gap-3 bg-red-50 rounded-sm px-4 py-3 text-sm text-red-600">
                 <XCircle size={16} className="flex-shrink-0" />
                 This order was cancelled. If you paid, a refund will be processed within 5–7 business days.
               </div>
@@ -184,7 +184,7 @@ export default function TrackOrderPage() {
           </div>
 
           {/* Delivery address */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <h3 className="font-bold text-[#111111] mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-[#7A5230]" /> Delivery Address
             </h3>
@@ -202,7 +202,7 @@ export default function TrackOrderPage() {
           </div>
 
           {/* Order summary */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-gray-100 rounded-sm p-6 shadow-sm">
             <h3 className="font-bold text-[#111111] mb-4">Order Summary</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-gray-500">
@@ -243,4 +243,4 @@ export default function TrackOrderPage() {
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
+const inputCls = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";

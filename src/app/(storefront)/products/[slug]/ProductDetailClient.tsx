@@ -52,7 +52,7 @@ export default function ProductDetailClient({ product, related }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-[#F4F0E6]"
+            className="relative aspect-square rounded-sm overflow-hidden bg-[#F4F0E6]"
           >
             {product.images?.[selectedImage] ? (
               <Image
@@ -82,7 +82,7 @@ export default function ProductDetailClient({ product, related }: Props) {
                   key={i}
                   onClick={() => setSelectedImage(i)}
                   className={cn(
-                    "flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors",
+                    "flex-shrink-0 w-16 h-16 rounded-sm overflow-hidden border-2 transition-colors",
                     selectedImage === i ? "border-[#7A5230]" : "border-transparent"
                   )}
                 >
@@ -158,7 +158,7 @@ export default function ProductDetailClient({ product, related }: Props) {
                     key={size}
                     onClick={() => setSelectedSize(size)}
                     className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all",
+                      "px-4 py-2 text-sm font-medium rounded-sm border-2 transition-all",
                       selectedSize === size
                         ? "border-[#7A5230] bg-[#111111]/10 text-white"
                         : "border-gray-200 text-gray-500 hover:border-[#111111]"
@@ -177,7 +177,7 @@ export default function ProductDetailClient({ product, related }: Props) {
           {/* Quantity */}
           <div className="mt-5 flex items-center gap-3">
             <p className="text-sm font-semibold text-[#111111]">Qty</p>
-            <div className="flex items-center border border-gray-200 rounded-lg">
+            <div className="flex items-center border border-gray-200 rounded-sm">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 className="px-3 py-2 text-gray-400 hover:text-[#111111] transition-colors text-lg leading-none"
@@ -202,7 +202,7 @@ export default function ProductDetailClient({ product, related }: Props) {
               onClick={handleAddToCart}
               disabled={product.stock === 0}
               className={cn(
-                "flex-1 flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-all duration-200",
+                "flex-1 flex items-center justify-center gap-2 font-bold py-3.5 rounded-sm transition-all duration-200",
                 product.stock === 0
                   ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                   : added
@@ -213,7 +213,7 @@ export default function ProductDetailClient({ product, related }: Props) {
               <ShoppingBag size={18} />
               {added ? "Added!" : product.stock === 0 ? "Out of Stock" : "Add to Cart"}
             </button>
-            <button className="p-3.5 border border-gray-200 rounded-xl text-gray-400 hover:text-red-400 hover:border-red-200 transition-colors">
+            <button className="p-3.5 border border-gray-200 rounded-sm text-gray-400 hover:text-red-400 hover:border-red-200 transition-colors">
               <Heart size={20} />
             </button>
           </div>

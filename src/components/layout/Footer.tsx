@@ -7,19 +7,14 @@ import FooterSocialLinks from "./FooterSocialLinks";
 // always reflect the latest admin settings without needing a redeploy.
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-white mt-auto">
+    <footer className="bg-[#111111] text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand + social */}
           <div>
             <div className="mb-4">
-              <span className="text-white font-bold text-xl tracking-tight">
-                Multi<span className="text-[#7A5230]">Business</span>
-                <span className="block text-xs font-light text-white/50 tracking-widest uppercase mt-0.5">
-                  Style
-                </span>
-              </span>
+              <span className="font-display text-2xl text-white">Multi Business Style</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed">
               South Africa&apos;s fashion destination — for men, women and kids. Your style, your way.
@@ -30,11 +25,11 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-5">Shop</h4>
+            <h4 className="font-label text-[0.72rem] uppercase tracking-wider text-white/60 mb-5">Shop</h4>
             <ul className="space-y-3 text-sm text-white/60">
               {["Men", "Women", "Kids", "Accessories", "Sale"].map((item) => (
                 <li key={item}>
-                  <Link href={`/shop/${item.toLowerCase()}`} className="hover:text-[#7A5230] transition-colors">
+                  <Link href={`/shop/${item.toLowerCase()}`} className="hover:text-[#E9DCC8] transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -44,7 +39,7 @@ export default function Footer() {
 
           {/* Help */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-5">Help</h4>
+            <h4 className="font-label text-[0.72rem] uppercase tracking-wider text-white/60 mb-5">Help</h4>
             <ul className="space-y-3 text-sm text-white/60">
               {[
                 { label: "Track Order",         href: "/track-order" },
@@ -54,7 +49,7 @@ export default function Footer() {
                 { label: "Contact Us",           href: "/contact" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-[#7A5230] transition-colors">
+                  <Link href={item.href} className="hover:text-[#E9DCC8] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -64,7 +59,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-5">
+            <h4 className="font-label text-[0.72rem] uppercase tracking-wider text-white/60 mb-5">
               Stay in the loop
             </h4>
             <p className="text-sm text-white/50 mb-4">

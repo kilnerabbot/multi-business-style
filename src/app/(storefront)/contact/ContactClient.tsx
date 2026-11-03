@@ -144,9 +144,9 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
         <motion.div {...fadeUp(0.1)} className="lg:col-span-1 space-y-4">
 
           {contactCards.map(({ icon: Icon, label, value, sub, href }) => (
-            <div key={label} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <div key={label} className="bg-white border border-gray-100 rounded-sm p-5 shadow-sm">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[#7A5230]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-9 h-9 rounded-sm bg-[#7A5230]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Icon size={16} className="text-[#7A5230]" />
                 </div>
                 <div>
@@ -166,7 +166,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
 
           {/* Social links card */}
           {activeSocials.length > 0 && (
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <div className="bg-white border border-gray-100 rounded-sm p-5 shadow-sm">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Follow Us</p>
               <div className="flex flex-wrap gap-2">
                 {activeSocials.map(({ key, label, color, icon }) => (
@@ -175,7 +175,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
                     href={s[key]}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-100 text-sm font-semibold transition-all ${color}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-sm border border-gray-100 text-sm font-semibold transition-all ${color}`}
                   >
                     {icon}
                     {label}
@@ -189,7 +189,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
         {/* Right — form */}
         <motion.div {...fadeUp(0.15)} className="lg:col-span-2">
           {sent ? (
-            <div className="h-full flex flex-col items-center justify-center text-center py-16 bg-white border border-gray-100 rounded-2xl shadow-sm px-8">
+            <div className="h-full flex flex-col items-center justify-center text-center py-16 bg-white border border-gray-100 rounded-sm shadow-sm px-8">
               <div className="w-16 h-16 bg-[#7A5230]/15 rounded-full flex items-center justify-center mb-5">
                 <CheckCircle size={32} className="text-[#7A5230]" />
               </div>
@@ -207,7 +207,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-white border border-gray-100 rounded-2xl shadow-sm p-8 space-y-5"
+              className="bg-white border border-gray-100 rounded-sm shadow-sm p-8 space-y-5"
             >
               <h2 className="text-xl font-display font-medium text-[#111111] mb-2">Send us a message</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -237,7 +237,7 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
               <button
                 type="submit" disabled={loading}
                 className={cn(
-                  "w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-all",
+                  "w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-sm transition-all",
                   loading
                     ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                     : "bg-[#111111] hover:bg-[#3a2c1f] text-white hover:shadow-lg hover:shadow-[#7A5230]/25"
@@ -255,4 +255,4 @@ export default function ContactClient({ settings }: { settings: SiteSettings }) 
 }
 
 const labelCls = "block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5";
-const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
+const inputCls = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#7A5230] transition-colors bg-[#FAF8F3]";
